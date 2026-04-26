@@ -100,7 +100,7 @@ export function FaqSection() {
             <SectionLabel>PERGUNTAS FREQUENTES</SectionLabel>
             <SectionTitle>O que você precisa saber antes de decidir.</SectionTitle>
 
-            <ExtraQuestionBlock className="mt-8" />
+            <ExtraQuestionBlock className="mt-8 hidden lg:block" />
           </div>
 
           <div className="lg:col-span-7">
@@ -128,6 +128,8 @@ export function FaqSection() {
                 ))}
               </Accordion>
             </motion.div>
+
+            <ExtraQuestionBlock className="mt-8 lg:hidden" />
           </div>
         </div>
       </Container>

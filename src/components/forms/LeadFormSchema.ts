@@ -14,7 +14,13 @@ export const leadFormSchema = z.object({
   ),
 })
 
+export const miniLeadFormSchema = leadFormSchema.pick({
+  nome: true,
+  whatsapp: true,
+})
+
 export type LeadFormData = z.infer<typeof leadFormSchema>
+export type MiniLeadFormData = z.infer<typeof miniLeadFormSchema>
 
 export const ESTADOS_BR = [
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",

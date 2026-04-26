@@ -11,7 +11,7 @@ import { fadeUp, viewportConfig } from "@/lib/motion"
 
 export function TestimonialsSection() {
   return (
-    <Section bg="primary" id="depoimentos">
+    <Section bg="primary" id="depoimentos" transitionTo="midnight">
       {/* Decoração — gradient dourado sutil */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.5]"

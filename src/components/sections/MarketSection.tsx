@@ -9,7 +9,7 @@ import { fadeUp, stagger, slideInLeft, viewportConfig } from "@/lib/motion"
 
 export function MarketSection() {
   return (
-    <Section bg="primary" id="mercado" transitionTo="leather">
+    <Section bg="primary" id="mercado" transitionTo="forest">
       {/* Decoração — gradient ember sutil no canto */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.5]"

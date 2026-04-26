@@ -1,24 +1,27 @@
 import { NextResponse } from "next/server"
-import { leadFormSchema } from "@/components/forms/LeadFormSchema"
+import { leadFormSchema, miniLeadFormSchema } from "@/components/forms/LeadFormSchema"
 
 export const runtime = "nodejs"
 
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const parsed = leadFormSchema.safeParse(body)
+    const fullLead = leadFormSchema.safeParse(body)
+    const miniLead = fullLead.success ? null : miniLeadFormSchema.safeParse(body)
+    const source = typeof body?.source === "string" ? body.source : "site-beco-franquia"
 
-    if (!parsed.success) {
+    if (!fullLead.success && !miniLead?.success) {
       return NextResponse.json(
-        { error: "Dados invalidos", issues: parsed.error.issues },
+        { error: "Dados invalidos", issues: fullLead.error.issues },
         { status: 400 }
       )
     }
 
     const lead = {
       timestamp: new Date().toISOString(),
-      source: "site-beco-franquia",
-      ...parsed.data,
+      source,
+      type: fullLead.success ? "complete" : "quick-contact",
+      ...(fullLead.success ? fullLead.data : miniLead!.data),
     }
 
     console.log("[lead]", lead)

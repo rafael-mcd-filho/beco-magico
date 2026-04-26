@@ -27,7 +27,13 @@ export function TerritorySection() {
           {/* Coluna esquerda — texto */}
           <div className="lg:col-span-5">
             <SectionLabel>TERRITÓRIO</SectionLabel>
-            <SectionTitle>O Beco tem um franqueado por cidade. Nada mais, nada menos.</SectionTitle>
+            <SectionTitle>
+              <span className="block">O Beco tem</span>
+              <span className="block">um franqueado</span>
+              <span className="block">por cidade.</span>
+              <span className="mt-3 block">Nada mais,</span>
+              <span className="block">nada menos.</span>
+            </SectionTitle>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -69,7 +75,7 @@ export function TerritorySection() {
             <BrazilMap />
 
             {/* Listas paralelas */}
-            <div className="relative grid grid-cols-2 gap-6 lg:gap-8 mt-10">
+            <div className="relative mt-8 grid grid-cols-2 gap-6 lg:gap-8">
               {/* Linha vertical separadora */}
               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-beco-gold/20 -translate-x-1/2" />
 
@@ -126,30 +132,71 @@ export function TerritorySection() {
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewportConfig}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              className="mt-10 p-6 bg-beco-ember/10 border-l-4 border-beco-ember rounded relative"
-            >
-              <div className="flex items-start gap-4">
-                <AlertCircle className="size-5 text-beco-emberLight shrink-0 mt-0.5" strokeWidth={1.5} />
-                <div>
-                  <p className="font-sans text-sm font-semibold text-beco-emberLight uppercase tracking-[0.08em]">
-                    Algumas praças têm candidaturas em andamento
-                  </p>
-                  <p className="font-sans text-sm text-beco-ivorySoft mt-2 leading-[1.6]">
-                    Pelo menos <strong className="text-beco-emberLight">3 das 8 praças abertas</strong> estão sob análise ativa de candidatos no momento. Quando uma cidade fecha, ela fecha de verdade — não há lista de espera, não há reabertura no curto prazo.
-                  </p>
-                  <p className="font-sans text-xs italic text-beco-mute mt-3 leading-[1.5]">
-                    Pra saber se sua cidade está disponível e em que estágio, preencha o formulário — respondemos com status atualizado em até 24h úteis.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 24,
+            scale: 0.96,
+            boxShadow: "0 0 0 rgba(228,91,79,0)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            boxShadow: [
+              "0 0 0 rgba(228,91,79,0)",
+              "0 0 48px rgba(228,91,79,0.24)",
+              "0 0 18px rgba(228,91,79,0.10)",
+            ],
+          }}
+          viewport={viewportConfig}
+          transition={{
+            duration: 0.75,
+            delay: 0.15,
+            ease: [0.22, 1, 0.36, 1],
+            boxShadow: { duration: 1.4, delay: 0.45, times: [0, 0.45, 1] },
+          }}
+          className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded border border-beco-ember/40 p-6 md:p-7"
+          style={{
+            background: "linear-gradient(135deg, rgba(228,91,79,0.16) 0%, rgba(61,40,24,0.42) 52%, rgba(215,154,78,0.08) 100%)",
+          }}
+        >
+          <motion.div
+            aria-hidden="true"
+            initial={{ x: "-120%" }}
+            whileInView={{ x: "120%" }}
+            viewport={viewportConfig}
+            transition={{ duration: 1.15, delay: 0.55, ease: "easeInOut" }}
+            className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-transparent via-beco-gold/10 to-transparent"
+          />
+          <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-beco-ember via-beco-gold to-beco-ember" />
+
+          <div className="relative flex items-start gap-4">
+            <motion.div
+              initial={{ scale: 0.8 }}
+              whileInView={{ scale: [0.8, 1.18, 1] }}
+              viewport={viewportConfig}
+              transition={{ duration: 0.65, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full border border-beco-ember/50 bg-beco-ember/15"
+            >
+              <AlertCircle className="size-4 text-beco-emberLight" strokeWidth={1.8} />
+            </motion.div>
+            <div>
+              <p className="font-sans text-sm font-semibold text-beco-emberLight uppercase tracking-[0.08em]">
+                Algumas praças têm candidaturas em andamento
+              </p>
+              <p className="font-sans text-sm text-beco-ivorySoft mt-2 leading-[1.6]">
+                Pelo menos <strong className="text-beco-emberLight">3 das 8 praças abertas</strong> estão sob análise ativa de candidatos no momento. Quando uma cidade fecha, ela fecha de verdade — não há lista de espera, não há reabertura no curto prazo.
+              </p>
+              <p className="font-sans text-xs italic text-beco-mute mt-3 leading-[1.5]">
+                Pra saber se sua cidade está disponível e em que estágio, preencha o formulário — respondemos com status atualizado em até 24h úteis.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </Section>
   )

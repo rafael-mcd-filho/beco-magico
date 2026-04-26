@@ -70,7 +70,7 @@ export function Section({
 
       {transitionTo && transitionTo !== bg && (
         <div
-          className="absolute inset-x-0 bottom-0 z-[2] h-20 md:h-28 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 z-[2] h-10 md:h-14 pointer-events-none"
           style={{
             background: `linear-gradient(180deg, rgba(0,0,0,0) 0%, ${bgColorMap[transitionTo]} 100%)`,
           }}

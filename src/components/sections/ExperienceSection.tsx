@@ -12,15 +12,50 @@ import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 export function ExperienceSection() {
   return (
     <>
-      <section id="experiencia" className="relative bg-beco-bg overflow-hidden">
+      <section id="experiencia" className="relative overflow-hidden bg-beco-midnight">
         {/* grão */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.15]"
+          style={{
+            backgroundImage: "url('/decorations/stars-pattern.svg')",
+            backgroundRepeat: "repeat",
+            backgroundSize: "300px 300px",
+          }}
+        />
+
+        <div className="absolute inset-0 pointer-events-none">
+          {[
+            { top: "10%", left: "7%", size: 4, delay: "0s" },
+            { top: "20%", left: "72%", size: 3, delay: "0.4s" },
+            { top: "34%", left: "18%", size: 5, delay: "1.2s" },
+            { top: "46%", left: "87%", size: 3, delay: "0.8s" },
+            { top: "63%", left: "10%", size: 4, delay: "1.8s" },
+            { top: "78%", left: "76%", size: 3, delay: "0.2s" },
+            { top: "86%", left: "32%", size: 4, delay: "2.4s" },
+            { top: "16%", left: "43%", size: 3, delay: "1.5s" },
+          ].map((star, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-beco-goldGlow animate-twinkle"
+              style={{
+                top: star.top,
+                left: star.left,
+                width: `${star.size}px`,
+                height: `${star.size}px`,
+                animationDelay: star.delay,
+                boxShadow: `0 0 ${star.size * 2}px rgba(240,188,110,0.6)`,
+              }}
+            />
+          ))}
+        </div>
+
         <div
           className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.06]"
           style={{ backgroundImage: "url('/textures/grain.png')" }}
         />
 
         <div
-          className="absolute inset-x-0 bottom-0 z-[2] h-20 md:h-28 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 z-[2] h-10 md:h-14 pointer-events-none"
           style={{
             background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #3D2818 100%)",
           }}

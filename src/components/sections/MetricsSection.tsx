@@ -22,7 +22,22 @@ import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 export function MetricsSection() {
   return (
-    <Section bg="leather" id="numeros" transitionTo="alt">
+    <Section bg="forest" id="numeros" transitionTo="alt">
+      <img
+        src="/decorations/leaves-corner.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-0 left-0 w-[300px] lg:w-[400px] opacity-[0.10] pointer-events-none"
+      />
+
+      <img
+        src="/decorations/leaves-corner.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-[300px] lg:w-[400px] opacity-[0.10] pointer-events-none"
+        style={{ transform: "scaleX(-1) scaleY(-1)" }}
+      />
+
       <Container>
         {/* Header centralizado */}
         <div className="text-center max-w-3xl mx-auto">
