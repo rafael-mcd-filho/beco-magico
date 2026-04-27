@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
@@ -10,14 +11,14 @@ import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 const units = [
-  { id: "IMAGEM-UNIDADE-01", name: "Manaus", state: "AM", description: "Fachada Manaus AM" },
-  { id: "IMAGEM-UNIDADE-02", name: "Mata Sul", state: "PE — Recife", description: "Fachada Mata Sul Recife" },
-  { id: "IMAGEM-UNIDADE-03", name: "Boa Viagem", state: "PE — Recife", description: "Fachada Boa Viagem Recife" },
-  { id: "IMAGEM-UNIDADE-04", name: "Bezerra Goyana", state: "GO — Goiânia", description: "Fachada Bezerra Goyana Goiânia" },
+  { city: "Manaus", image: "/images/unidades/manaus.png" },
+  { city: "Recife", image: "/images/unidades/recife.png" },
+  { city: "Goiânia", image: "/images/unidades/goiania.png" },
+  { city: "Natal", image: "/images/unidades/natal.png" },
+  { city: "João Pessoa", image: "/images/unidades/joao-pessoa.png" },
 ]
 
 function UnitCard({ unit }: { unit: (typeof units)[number] }) {
@@ -28,24 +29,15 @@ function UnitCard({ unit }: { unit: (typeof units)[number] }) {
       transition={{ duration: 0.3 }}
       className="group h-full cursor-pointer"
     >
-      <div className="relative overflow-hidden rounded-sm">
-        <ImagePlaceholder
-          id={unit.id}
-          description={unit.description}
-          ratio="4/5"
-          dimension="600×750"
-          className="w-full !aspect-[4/5] transition-transform duration-500 group-hover:scale-[1.03]"
+      <div className="relative aspect-[495/723] overflow-hidden rounded-sm border border-beco-gold/20 bg-beco-surface/25">
+        <Image
+          src={unit.image}
+          alt={`Fachada da unidade Beco Mágico em ${unit.city}`}
+          fill
+          sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-beco-gold/0 transition-colors duration-300 pointer-events-none group-hover:bg-beco-gold/10" />
-      </div>
-
-      <div className="mt-4">
-        <h3 className="font-display font-semibold text-lg text-beco-ivory">
-          {unit.name}
-        </h3>
-        <p className="mt-1 font-sans text-xs uppercase tracking-[0.1em] text-beco-mute">
-          {unit.state}
-        </p>
       </div>
     </motion.div>
   )
@@ -139,7 +131,7 @@ export function UnitsGallerySection() {
             <div className="overflow-hidden" ref={carouselRef} aria-label="Unidades em operação">
               <div className="-ml-5 flex">
                 {units.map((unit) => (
-                  <div key={unit.id} className="min-w-0 flex-[0_0_100%] pl-5 sm:flex-[0_0_50%]">
+                  <div key={unit.city} className="min-w-0 flex-[0_0_100%] pl-5 sm:flex-[0_0_50%]">
                     <UnitCard unit={unit} />
                   </div>
                 ))}

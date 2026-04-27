@@ -1,7 +1,6 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { motion } from "framer-motion"
 import {
   ComposableMap,
   Geographies,
@@ -36,11 +35,9 @@ const cities: City[] = [
 
 function CityMarker({
   city,
-  isInView,
   delay,
 }: {
   city: City
-  isInView: boolean
   delay: number
 }) {
   const isOpen = city.status === "open"
@@ -49,8 +46,8 @@ function CityMarker({
 
   return (
     <motion.g
-      initial={{ opacity: 0, scale: 0.6 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
+      initial={{ opacity: 0, scale: 0.75 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay }}
       className="pointer-events-none"
     >
@@ -62,7 +59,7 @@ function CityMarker({
         fill="none"
         stroke={color}
         strokeWidth={1.4}
-        animate={isInView ? { r: [6, 20], opacity: [0.82, 0] } : { r: 6, opacity: 0 }}
+        animate={{ r: [6, 20], opacity: [0.82, 0] }}
         transition={{ duration: 2.1, repeat: Infinity, ease: "easeOut" }}
       />
       <circle r={8} fill={glow} />
@@ -72,16 +69,8 @@ function CityMarker({
 }
 
 export function BrazilMap() {
-  const mapRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(mapRef, { once: true, margin: "-20%" })
-
   return (
-    <motion.div
-      ref={mapRef}
-      initial={{ clipPath: "inset(100% 0 0 0)" }}
-      whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-      viewport={{ once: true, margin: "-15%" }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className="relative mx-auto aspect-[600/700] w-full max-w-[300px] sm:max-w-[330px] lg:max-w-[360px]"
     >
       <ComposableMap
@@ -119,10 +108,10 @@ export function BrazilMap() {
 
         {cities.map((city, i) => (
           <Marker key={city.name} coordinates={city.coordinates}>
-            <CityMarker city={city} isInView={isInView} delay={0.55 + i * 0.05} />
+            <CityMarker city={city} delay={0.15 + i * 0.04} />
           </Marker>
         ))}
       </ComposableMap>
-    </motion.div>
+    </div>
   )
 }

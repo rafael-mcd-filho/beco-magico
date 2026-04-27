@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
+import { SectionTitle } from "@/components/layout/SectionTitle"
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 
 export function HistorySection() {
@@ -64,42 +65,12 @@ export function HistorySection() {
               </span>
             </motion.div>
 
-            {/* Título com "inteiras" em itálico goldGlow */}
-            <h2 className="font-display font-semibold text-beco-ivory text-section-mobile md:text-section-desktop">
-              {["Encantando", "famílias"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{ duration: 0.7, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
-              <motion.span
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15%" }}
-                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-block italic text-beco-goldGlow mr-[0.25em]"
-              >
-                inteiras,
-              </motion.span>
-              {["todos", "os", "dias."].map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{ duration: 0.7, delay: 0.18 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </h2>
+            <SectionTitle>
+              <span className="block">Encantando famílias</span>
+              <span className="block">
+                <span className="italic text-beco-goldGlow">inteiras,</span> todos os dias.
+              </span>
+            </SectionTitle>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -127,8 +98,8 @@ export function HistorySection() {
           {/* Coluna direita — foto sangrando à direita */}
           <div className="lg:col-span-5 relative">
             <motion.div
-              initial={{ clipPath: "inset(0 0 100% 0)" }}
-              whileInView={{ clipPath: "inset(0 0 0% 0)" }}
+              initial={{ opacity: 0.98, scale: 0.99 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-15%" }}
               transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
             >

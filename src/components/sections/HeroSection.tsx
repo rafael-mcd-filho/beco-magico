@@ -98,6 +98,10 @@ function QuickContactForm() {
 
       {error && <p className="font-sans text-xs text-beco-emberLight">{error}</p>}
 
+      <p className="font-sans text-xs leading-[1.5] text-beco-mute">
+        Preencha seus dados para nossa equipe entrar em contato com você.
+      </p>
+
       <button
         type="submit"
         disabled={submitting}

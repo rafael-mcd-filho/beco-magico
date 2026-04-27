@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
+import { SectionTitle } from "@/components/layout/SectionTitle"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { fadeUp, stagger, slideInLeft, viewportConfig } from "@/lib/motion"
 
@@ -23,42 +24,13 @@ export function MarketSection() {
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel align="center">O MERCADO</SectionLabel>
 
-          {/* Título com "R$ 615 bilhões" em itálico e ember (LARANJA, não dourado!) */}
-          <h2 className="font-display font-semibold text-beco-ivory text-section-mobile md:text-section-desktop">
-            {["Um", "setor", "de"].map((word, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15%" }}
-                transition={{ duration: 0.7, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-block mr-[0.25em]"
-              >
-                {word}
-              </motion.span>
-            ))}
-            <motion.span
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-15%" }}
-              transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block italic text-beco-ember mr-[0.25em]"
-            >
-              R$ 615 bilhões
-            </motion.span>
-            {["—", "e", "crescendo."].map((word, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15%" }}
-                transition={{ duration: 0.7, delay: 0.24 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-block mr-[0.25em]"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </h2>
+          <SectionTitle align="center">
+            <span className="block">Um setor de</span>
+            <span className="block">
+              <span className="italic text-beco-ember">R$ 615 bilhões</span>
+            </span>
+            <span className="block">e crescendo.</span>
+          </SectionTitle>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

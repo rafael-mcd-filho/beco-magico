@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
+import { SectionTitle } from "@/components/layout/SectionTitle"
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
@@ -67,43 +68,13 @@ export function ExperienceSection() {
             <Container className="lg:pr-12">
               <SectionLabel>A EXPERIÊNCIA</SectionLabel>
 
-              {/* Título com "travessia" em itálico dourado */}
-              <h2 className="font-wizard font-normal text-beco-ivory text-section-mobile md:text-section-desktop">
-                {["Não", "é", "uma", "hamburgueria."].map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-15%" }}
-                    transition={{ duration: 0.7, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block mr-[0.25em]"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-                <br className="hidden md:block" />
-                {["É", "uma"].map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-15%" }}
-                    transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block mr-[0.25em]"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-                <motion.span
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block italic text-beco-gold"
-                >
-                  travessia.
-                </motion.span>
-              </h2>
+              <SectionTitle>
+                <span className="block">Não é uma</span>
+                <span className="block">hamburgueria.</span>
+                <span className="block">
+                  É uma <span className="italic text-beco-gold">travessia.</span>
+                </span>
+              </SectionTitle>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -120,8 +91,8 @@ export function ExperienceSection() {
           {/* Coluna direita — foto sangrando à direita */}
           <div className="lg:col-span-5 order-1 lg:order-2 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[42%]">
             <motion.div
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              initial={{ opacity: 0.98, scale: 0.99 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-15%" }}
               transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
               className="w-full h-full"
