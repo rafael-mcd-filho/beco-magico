@@ -13,7 +13,7 @@ import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 export function TerritorySection() {
   return (
-    <Section bg="alt" id="territorio">
+    <Section bg="alt" id="territorio" className="pb-32 md:pb-24">
       {/* Decoração — gradient dourado sutil no canto */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.06]"

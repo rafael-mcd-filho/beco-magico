@@ -23,7 +23,7 @@ function QuickContactForm() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const inputBase = "w-full rounded border border-beco-border/40 bg-beco-bgAlt/60 px-4 py-3.5 font-sans text-sm text-beco-ivory placeholder:text-beco-mute/60 outline-none transition-colors focus:border-beco-gold disabled:opacity-60"
+  const inputBase = "w-full rounded border border-beco-border/40 bg-beco-bgAlt/60 px-4 py-3.5 font-sans text-base text-beco-ivory placeholder:text-beco-mute/60 outline-none transition-colors focus:border-beco-gold disabled:opacity-60"
   const labelBase = "mb-2 block font-sans text-xs font-semibold uppercase tracking-[0.14em] text-beco-ivory"
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -105,7 +105,7 @@ function QuickContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-beco-gold px-6 py-4 font-sans text-sm font-semibold text-beco-bg transition-all hover:bg-beco-goldGlow disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-beco-gold px-6 py-4 font-sans text-base font-semibold text-beco-bg transition-all hover:bg-beco-goldGlow disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? (
           <>

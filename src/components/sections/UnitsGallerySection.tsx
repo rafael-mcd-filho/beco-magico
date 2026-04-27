@@ -5,7 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
-import { ArrowRight, MapPin } from "lucide-react"
+import { MapPin } from "lucide-react"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
@@ -73,10 +73,10 @@ function NextCityCard() {
 
       <a
         href="#formulario"
-        className="mt-7 inline-flex items-center gap-2 border-b border-beco-gold/40 pb-1 font-sans text-sm font-semibold text-beco-gold transition-colors hover:border-beco-gold"
+        className="mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] px-5 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold rounded-pill transition-colors"
       >
         Quero a minha
-        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+        <span className="transition-transform group-hover:translate-x-1">→</span>
       </a>
     </motion.div>
   )
@@ -102,7 +102,7 @@ export function UnitsGallerySection() {
   )
 
   return (
-    <Section bg="alt" id="unidades" transitionTo="forest" className="py-20 md:py-20">
+    <Section bg="alt" id="unidades" transitionTo="forest" className="py-20 pb-32 md:py-20 md:pb-24">
       <Container>
         {/* Header centralizado */}
         <div className="text-center max-w-2xl mx-auto">

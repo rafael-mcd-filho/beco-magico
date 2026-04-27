@@ -82,10 +82,10 @@ function ExtraQuestionBlock({ className = "" }: { className?: string }) {
       </p>
       <a
         href="#formulario"
-        className="inline-flex items-center mt-4 px-5 py-2.5 rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold text-sm hover:bg-beco-goldGlow transition-all"
+        className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold/70 rounded-pill transition-colors"
       >
         Fazer minha pergunta
-        <span className="ml-2">→</span>
+        <span>→</span>
       </a>
     </motion.div>
   )
