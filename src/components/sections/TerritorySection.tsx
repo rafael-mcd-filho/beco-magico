@@ -140,24 +140,17 @@ export function TerritorySection() {
             opacity: 0,
             y: 24,
             scale: 0.96,
-            boxShadow: "0 0 0 rgba(228,91,79,0)",
           }}
           whileInView={{
             opacity: 1,
             y: 0,
             scale: 1,
-            boxShadow: [
-              "0 0 0 rgba(228,91,79,0)",
-              "0 0 48px rgba(228,91,79,0.24)",
-              "0 0 18px rgba(228,91,79,0.10)",
-            ],
           }}
           viewport={viewportConfig}
           transition={{
             duration: 0.75,
             delay: 0.15,
             ease: [0.22, 1, 0.36, 1],
-            boxShadow: { duration: 1.4, delay: 0.45, times: [0, 0.45, 1] },
           }}
           className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded border border-beco-ember/40 p-6 md:p-7"
           style={{

@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import {
   ComposableMap,
@@ -33,12 +34,30 @@ const cities: City[] = [
   { name: "Porto Alegre", coordinates: [-51.2177, -30.0346], status: "open" },
 ]
 
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)")
+
+    const handleChange = () => setIsDesktop(mediaQuery.matches)
+    handleChange()
+
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [])
+
+  return isDesktop
+}
+
 function CityMarker({
   city,
   delay,
+  enablePulse,
 }: {
   city: City
   delay: number
+  enablePulse: boolean
 }) {
   const isOpen = city.status === "open"
   const color = isOpen ? "#3FCF7F" : "#E45B4F"
@@ -54,14 +73,16 @@ function CityMarker({
       <title>
         {city.name} - {isOpen ? "vaga aberta" : "ocupada"}
       </title>
-      <motion.circle
-        r={6}
-        fill="none"
-        stroke={color}
-        strokeWidth={1.4}
-        animate={{ r: [6, 20], opacity: [0.82, 0] }}
-        transition={{ duration: 2.1, repeat: Infinity, ease: "easeOut" }}
-      />
+      {enablePulse && (
+        <motion.circle
+          r={6}
+          fill="none"
+          stroke={color}
+          strokeWidth={1.4}
+          animate={{ r: [6, 20], opacity: [0.82, 0] }}
+          transition={{ duration: 2.1, repeat: Infinity, ease: "easeOut" }}
+        />
+      )}
       <circle r={8} fill={glow} />
       <circle r={4.5} fill={color} stroke="#2A1810" strokeWidth={1.4} />
     </motion.g>
@@ -69,6 +90,8 @@ function CityMarker({
 }
 
 export function BrazilMap() {
+  const enablePulse = useIsDesktop()
+
   return (
     <div
       className="relative mx-auto aspect-[600/700] w-full max-w-[300px] sm:max-w-[330px] lg:max-w-[360px]"
@@ -108,7 +131,7 @@ export function BrazilMap() {
 
         {cities.map((city, i) => (
           <Marker key={city.name} coordinates={city.coordinates}>
-            <CityMarker city={city} delay={0.15 + i * 0.04} />
+            <CityMarker city={city} delay={0.15 + i * 0.04} enablePulse={enablePulse} />
           </Marker>
         ))}
       </ComposableMap>
