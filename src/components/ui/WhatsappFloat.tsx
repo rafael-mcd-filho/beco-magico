@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 import { trackEvent } from "@/lib/tracking"
 
-const WHATSAPP_NUMBER = "5583999887766"
+const WHATSAPP_NUMBER = "5583999641226"
 const DEFAULT_MESSAGE = "Olá! Tenho interesse em conhecer a franquia Beco Mágico."
 
 export function WhatsappFloat() {
