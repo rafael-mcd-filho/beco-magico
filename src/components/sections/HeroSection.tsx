@@ -8,6 +8,9 @@ import { Check, Loader2, Mouse } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { CtaWand } from "@/components/ui/CtaWand"
 
+const heroCopy =
+  "O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando — com critério — os franqueados que vão levar esse universo a novas cidades."
+
 function maskWhatsapp(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
   if (digits.length <= 2) return digits.length ? `(${digits}` : ""
@@ -120,6 +123,42 @@ function QuickContactForm() {
         )}
       </button>
     </form>
+  )
+}
+
+function AnimatedHeroCopy() {
+  return (
+    <span className="hero-copy-highlight" aria-label={heroCopy}>
+      <motion.span
+        aria-hidden="true"
+        className="inline"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 1.18,
+              staggerChildren: 0.012,
+            },
+          },
+        }}
+      >
+        {Array.from(heroCopy).map((char, index) => (
+          <motion.span
+            key={`${char}-${index}`}
+            className={char === " " ? "inline" : "inline-block"}
+            variants={{
+              hidden: { opacity: 0, y: 3 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.16, ease: "easeOut" }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </motion.span>
+    </span>
   )
 }
 
@@ -310,16 +349,8 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 0.95 }}
               className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-8"
             >
-              <span className="font-sans text-sm md:text-base font-semibold uppercase tracking-[0.08em] text-beco-gold">
+              <span className="font-sans text-sm md:text-base font-semibold uppercase tracking-[0.08em] text-beco-goldGlow drop-shadow-[0_0_12px_rgba(240,188,110,0.36)]">
                 Hamburgueria temática premium
-              </span>
-              <span className="text-beco-gold/40">·</span>
-              <span className="font-sans text-sm md:text-base text-beco-ivorySoft">
-                Investimento R$ 500-750k
-              </span>
-              <span className="text-beco-gold/40">·</span>
-              <span className="font-sans text-sm md:text-base text-beco-ivorySoft">
-                Faturamento médio R$ 3MM+/ano
               </span>
             </motion.div>
 
@@ -329,7 +360,7 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 1.1 }}
               className="font-sans text-lg lg:text-xl text-beco-ivory leading-[1.6] max-w-prose mt-6"
             >
-              <span className="box-decoration-clone rounded bg-beco-bg/85 px-2 py-1 font-medium shadow-[0_0_0_1px_rgba(215,154,78,0.45),0_10px_34px_rgba(0,0,0,0.28)] ring-1 ring-beco-gold/45 backdrop-blur-md md:bg-beco-leather/80 md:ring-beco-gold/35">O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando — com critério — os franqueados que vão levar esse universo a novas cidades.</span>
+              <AnimatedHeroCopy />
             </motion.p>
 
             <motion.div

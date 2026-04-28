@@ -27,6 +27,43 @@ h1 {
   animation: hero-marquee 18s linear infinite;
 }
 
+.hero-copy-highlight {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(215, 154, 78, 0.52);
+  border-radius: 10px;
+  padding: 0.95rem 1.1rem;
+  background:
+    linear-gradient(90deg, rgba(61, 34, 20, 0.92), rgba(35, 16, 10, 0.78)),
+    rgba(42, 24, 16, 0.82);
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 235, 205, 0.08);
+  color: #fff7ec;
+  font-weight: 650;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+}
+
+.hero-copy-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: hero-copy-fill 1.15s cubic-bezier(0.22, 1, 0.36, 1) 1.15s forwards;
+  background:
+    linear-gradient(90deg, rgba(215, 154, 78, 0.34), rgba(155, 78, 29, 0.2) 46%, rgba(42, 24, 16, 0) 100%);
+}
+
+@keyframes hero-copy-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes hero-marquee {
   from {
     transform: translate3d(0, 0, 0);
