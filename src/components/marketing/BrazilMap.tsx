@@ -21,7 +21,7 @@ const cities: City[] = [
   { name: "Recife", coordinates: [-34.877, -8.0476], status: "occupied" },
   { name: "Joao Pessoa", coordinates: [-34.8641, -7.1195], status: "occupied" },
   { name: "Manaus", coordinates: [-60.0217, -3.119], status: "occupied" },
-  { name: "Goiania", coordinates: [-49.2643, -16.6869], status: "occupied" },
+  { name: "Goiânia", coordinates: [-49.2643, -16.6869], status: "occupied" },
   { name: "Natal", coordinates: [-35.2094, -5.7945], status: "occupied" },
   { name: "Aracaju", coordinates: [-37.0731, -10.9472], status: "occupied" },
   { name: "Fortaleza", coordinates: [-38.5267, -3.7319], status: "open" },

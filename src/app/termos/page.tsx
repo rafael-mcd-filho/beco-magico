@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage"
+import { createMetadata } from "../seo"
 
-export const metadata: Metadata = {
-  title: "Termos de Uso | Beco Mágico Franquias",
-  description: "Condições gerais de uso da página de franquias do Beco Mágico.",
-}
+export const metadata: Metadata = createMetadata({
+    title: "Termos de Uso | Beco M\u00e1gico Franquias",
+  description:
+        "Condi\u00e7\u00f5es gerais de uso da p\u00e1gina de franquias do Beco M\u00e1gico e envio de informa\u00e7\u00f5es por interessados.",
+  path: "/termos",
+})
 
 export default function TermosPage() {
   return (

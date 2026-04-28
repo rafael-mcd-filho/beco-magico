@@ -4,6 +4,7 @@ import Link from "next/link"
 import type { SVGProps } from "react"
 import { Mail, MapPin } from "lucide-react"
 import { Container } from "@/components/layout/Container"
+import { CtaWand } from "@/components/ui/CtaWand"
 
 function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -109,7 +110,7 @@ export function FooterSection() {
                 className="inline-flex items-center mt-6 px-5 py-2.5 rounded-pill border border-beco-gold/60 text-beco-gold text-sm font-sans font-semibold hover:bg-beco-gold hover:text-beco-bg transition-all"
               >
                 Quero ser franqueado
-                <span className="ml-2">→</span>
+                <CtaWand className="ml-2 size-4" />
               </a>
             </div>
 
@@ -167,7 +168,7 @@ export function FooterSection() {
               © {ano} Beco Mágico Franquias. Todos os direitos reservados.
             </p>
             <p className="font-sans text-xs text-beco-mute">
-              CNPJ {/* TODO: cliente */} XX.XXX.XXX/0001-XX
+              CNPJ 55.699.495/0001-80
             </p>
           </div>
         </Container>

@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage"
+import { createMetadata } from "../seo"
 
-export const metadata: Metadata = {
-  title: "Lei Geral de Proteção de Dados | Beco Mágico Franquias",
-  description: "Canal e informações para exercício de direitos previstos na LGPD.",
-}
+export const metadata: Metadata = createMetadata({
+    title: "LGPD | Beco M\u00e1gico Franquias",
+  description:
+        "Canal e informa\u00e7\u00f5es para exerc\u00edcio de direitos previstos na Lei Geral de Prote\u00e7\u00e3o de Dados na p\u00e1gina de franquias do Beco M\u00e1gico.",
+  path: "/lgpd",
+})
 
 export default function LgpdPage() {
   return (

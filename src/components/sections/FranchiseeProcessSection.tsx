@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
+import { CtaWand } from "@/components/ui/CtaWand"
 
 const steps = [
   {
@@ -121,8 +122,8 @@ export function FranchiseeProcessSection() {
             href="#formulario"
             className="group inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow transition-all"
           >
-            Quero começar pelo passo 1
-            <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+            Quero fazer o cadastro
+            <CtaWand className="ml-2 size-4 transition-transform group-hover:rotate-12" />
           </a>
         </motion.div>
       </Container>

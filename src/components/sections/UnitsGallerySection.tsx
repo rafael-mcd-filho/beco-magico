@@ -1,16 +1,17 @@
 "use client"
 
-import { useMemo } from "react"
+import { useCallback, useMemo } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
-import { MapPin } from "lucide-react"
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
+import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 const units = [
@@ -68,7 +69,7 @@ function NextCityCard() {
       </p>
 
       <p className="mt-4 max-w-[230px] font-sans text-sm leading-[1.55] text-beco-mute">
-        Leve o Beco para a sua praça e entre no mapa da expansão.
+        Leve o Beco Mágico para a sua praça e entre no mapa da expansão.
       </p>
 
       <a
@@ -76,7 +77,7 @@ function NextCityCard() {
         className="mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] px-5 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold rounded-pill transition-colors"
       >
         Quero a minha
-        <span className="transition-transform group-hover:translate-x-1">→</span>
+        <CtaWand className="size-4 transition-transform group-hover:rotate-12" />
       </a>
     </motion.div>
   )
@@ -92,7 +93,7 @@ export function UnitsGallerySection() {
       }),
     []
   )
-  const [carouselRef] = useEmblaCarousel(
+  const [carouselRef, carouselApi] = useEmblaCarousel(
     {
       align: "start",
       loop: true,
@@ -101,13 +102,21 @@ export function UnitsGallerySection() {
     [autoplay]
   )
 
+  const scrollPrev = useCallback(() => {
+    carouselApi?.scrollPrev()
+  }, [carouselApi])
+
+  const scrollNext = useCallback(() => {
+    carouselApi?.scrollNext()
+  }, [carouselApi])
+
   return (
     <Section bg="alt" id="unidades" transitionTo="forest" className="py-20 pb-32 md:py-20 md:pb-24">
       <Container>
         {/* Header centralizado */}
         <div className="text-center max-w-2xl mx-auto">
           <SectionLabel align="center">UNIDADES EM OPERAÇÃO</SectionLabel>
-          <SectionTitle align="center">De Manaus a Recife, o Beco já chegou.</SectionTitle>
+          <SectionTitle align="center">De Manaus a Recife, o Beco Mágico já chegou.</SectionTitle>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +136,7 @@ export function UnitsGallerySection() {
           viewport={viewportConfig}
           className="mt-16 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] lg:items-stretch"
         >
-          <motion.div variants={fadeUp} className="min-w-0">
+          <motion.div variants={fadeUp} className="relative min-w-0">
             <div className="overflow-hidden" ref={carouselRef} aria-label="Unidades em operação">
               <div className="-ml-5 flex">
                 {units.map((unit) => (
@@ -137,6 +146,24 @@ export function UnitsGallerySection() {
                 ))}
               </div>
             </div>
+
+            <button
+              type="button"
+              onClick={scrollPrev}
+              aria-label="Ver unidade anterior"
+              className="absolute left-2 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center rounded-pill border border-beco-gold/50 bg-beco-bg/85 text-beco-gold shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors hover:border-beco-gold hover:bg-beco-gold hover:text-beco-bg sm:-left-4"
+            >
+              <ChevronLeft className="size-6" strokeWidth={2.25} />
+            </button>
+
+            <button
+              type="button"
+              onClick={scrollNext}
+              aria-label="Ver proxima unidade"
+              className="absolute right-2 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center rounded-pill border border-beco-gold/50 bg-beco-bg/85 text-beco-gold shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors hover:border-beco-gold hover:bg-beco-gold hover:text-beco-bg sm:-right-4"
+            >
+              <ChevronRight className="size-6" strokeWidth={2.25} />
+            </button>
           </motion.div>
 
           <NextCityCard />
@@ -155,11 +182,6 @@ export function UnitsGallerySection() {
             <span className="font-sans text-xs uppercase tracking-[0.12em] text-beco-mute">+ área externa quando o ponto permite</span>
           </div>
         </motion.div>
-
-        <p className="text-center font-sans italic text-xs text-beco-mute mt-12">
-          {/* TODO: confirmar com cliente lista completa de unidades em operação */}
-          E mais unidades em fase de implantação por todo o Brasil.
-        </p>
       </Container>
     </Section>
   )

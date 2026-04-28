@@ -9,6 +9,7 @@ import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
 import { Divider } from "@/components/layout/Divider"
 import { BrazilMap } from "@/components/marketing/BrazilMap"
+import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 export function TerritorySection() {
@@ -28,7 +29,7 @@ export function TerritorySection() {
           <div className="lg:col-span-5">
             <SectionLabel>TERRITÓRIO</SectionLabel>
             <SectionTitle>
-              <span className="block">O Beco tem</span>
+              <span className="block">O Beco Mágico tem</span>
               <span className="block">um franqueado</span>
               <span className="block">por cidade.</span>
               <span className="mt-3 block">Nada mais,</span>
@@ -55,7 +56,7 @@ export function TerritorySection() {
               className="mt-10"
             >
               <h3 className="font-display font-semibold text-xl text-beco-ivory">
-                Sua cidade não está na lista?
+                Sua cidade não está na lista
               </h3>
               <p className="font-sans text-sm text-beco-mute mt-3 leading-[1.6]">
                 Avaliamos viabilidade caso a caso e abrimos novas praças conforme a demanda real.
@@ -65,7 +66,7 @@ export function TerritorySection() {
                 className="inline-flex items-center mt-6 px-6 py-3 rounded-pill border border-beco-gold/60 text-beco-gold hover:bg-beco-gold hover:text-beco-bg transition-all font-sans font-semibold text-sm"
               >
                 Verificar minha cidade
-                <span className="ml-2">→</span>
+                <CtaWand className="ml-2 size-4" />
               </a>
             </motion.div>
           </div>

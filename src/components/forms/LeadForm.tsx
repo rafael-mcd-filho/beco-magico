@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
+import { CtaWand } from "@/components/ui/CtaWand"
 import { leadFormSchema, type LeadFormData, ESTADOS_BR } from "./LeadFormSchema"
 
 function maskWhatsapp(value: string): string {
@@ -98,7 +99,7 @@ export function LeadForm() {
             id="cidade"
             type="text"
             {...register("cidade")}
-            placeholder="Onde quer abrir o Beco"
+            placeholder="Onde quer abrir o Beco Mágico"
             className={inputBase}
             disabled={submitting}
           />
@@ -160,8 +161,8 @@ export function LeadForm() {
           </>
         ) : (
           <>
-            Quero ser franqueado do Beco
-            <span>→</span>
+            QUERO SER FRANQUEADO
+            <CtaWand className="size-5" />
           </>
         )}
       </button>

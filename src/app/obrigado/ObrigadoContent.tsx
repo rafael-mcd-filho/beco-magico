@@ -5,6 +5,7 @@ import type { SVGProps } from "react"
 import { motion } from "framer-motion"
 import { FileText, Video, ArrowLeft } from "lucide-react"
 import { Container } from "@/components/layout/Container"
+import { CtaWand } from "@/components/ui/CtaWand"
 
 function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -90,7 +91,7 @@ export function ObrigadoContent() {
           transition={{ duration: 0.7, delay: 0.85 }}
           className="font-sans text-lg lg:text-xl text-beco-ivorySoft mt-6 max-w-2xl leading-[1.6]"
         >
-          Recebemos seu cadastro e nossa equipe de expansão vai entrar em contato em até <strong className="text-beco-gold">24 horas úteis</strong>. Enquanto isso, você pode aproveitar pra conhecer o Beco mais a fundo.
+          Recebemos seu cadastro e nossa equipe de expansão vai entrar em contato em até <strong className="text-beco-gold">24 horas úteis</strong>. Enquanto isso, você pode aproveitar pra conhecer o Beco Mágico mais a fundo.
         </motion.p>
 
         <motion.div
@@ -113,13 +114,13 @@ export function ObrigadoContent() {
             {
               icon: Video,
               title: "Vídeo dos franqueados",
-              desc: "Veja franqueados atuais contando como é o dia a dia operando uma unidade do Beco.",
+              desc: "Veja franqueados atuais contando como é o dia a dia operando uma unidade do Beco Mágico.",
               cta: "Assistir agora",
               href: "#",
             },
             {
               icon: InstagramIcon,
-              title: "Siga o Beco",
+              title: "Siga o Beco Mágico",
               desc: "Acompanhe os bastidores, novos sabores e eventos das unidades em operação.",
               cta: "@becomagico",
               href: "https://instagram.com/becomagico",
@@ -147,7 +148,7 @@ export function ObrigadoContent() {
                 </p>
                 <span className="inline-flex items-center gap-1 mt-4 font-sans font-semibold text-xs text-beco-gold group-hover:gap-2 transition-all">
                   {item.cta}
-                  <span>→</span>
+                  <CtaWand className="size-3.5" />
                 </span>
               </motion.a>
             )

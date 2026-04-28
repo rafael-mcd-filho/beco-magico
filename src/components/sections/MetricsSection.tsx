@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   TrendingUp,
   Percent,
@@ -16,8 +17,8 @@ import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
+import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 export function MetricsSection() {
@@ -67,10 +68,10 @@ export function MetricsSection() {
           </span>
 
           <p className="font-display italic text-lg lg:text-xl text-beco-ivory leading-[1.5] mt-2">
-            &ldquo;E se a operação tiver dificuldade?&rdquo;
+            &ldquo;E se a operação tiver dificuldade&rdquo;
           </p>
           <p className="font-sans text-sm lg:text-base text-beco-ivorySoft mt-4 leading-[1.6]">
-            Nenhuma franquia é blindada contra adversidade — e qualquer franqueadora que diga o contrário está mentindo. O que diferencia o Beco é o que acontece quando algo não vai bem: equipe de campo disponível, revisão de plano de gestão e, quando necessário, intervenção direta na operação. <strong className="text-beco-gold not-italic font-semibold">Não existe unidade abandonada na nossa rede.</strong>
+            Nenhuma franquia é blindada contra adversidade — e qualquer franqueadora que diga o contrário está mentindo. O que diferencia o Beco Mágico é o que acontece quando algo não vai bem: equipe de campo disponível, revisão de plano de gestão e, quando necessário, intervenção direta na operação. <strong className="text-beco-gold not-italic font-semibold">Não existe unidade abandonada na nossa rede.</strong>
           </p>
         </motion.div>
 
@@ -176,20 +177,18 @@ export function MetricsSection() {
           transition={{ duration: 0.9 }}
           className="mt-12"
         >
-          <ImagePlaceholder
-            id="IMAGEM-05"
-            description="Tábua premium — hambúrgueres, drinks, pratos do Beco em close"
-            ratio="21/9"
-            dimension="2400×1029"
-            treatment="saturado, vibrante"
-            className="w-full !aspect-[21/9]"
-          />
+          <div className="relative w-full aspect-[21/9] overflow-hidden rounded border border-beco-gold/30">
+            <Image
+              src="/images/pratos/tabua.png"
+              alt="Tábua premium com hambúrgueres, drinks e pratos do Beco Mágico"
+              fill
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="object-cover"
+            />
+          </div>
         </motion.div>
 
-        {/* Disclaimer + CTA */}
-        <p className="text-center font-sans italic text-xs text-beco-mute mt-12 max-w-prose mx-auto">
-          Disclaimer: valores referenciais com base em médias da rede. A COF completa é apresentada após a primeira reunião.
-        </p>
+        {/* CTA */}
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -202,8 +201,8 @@ export function MetricsSection() {
             href="#formulario"
             className="group inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow transition-all"
           >
-            Quero receber a apresentação completa
-            <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+            Quero receber a apresentação
+            <CtaWand className="ml-2 size-4 transition-transform group-hover:rotate-12" />
           </a>
         </motion.div>
       </Container>

@@ -1,12 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Play } from "lucide-react"
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 import { fadeUp, viewportConfig } from "@/lib/motion"
 
 export function TestimonialsSection() {
@@ -24,7 +22,7 @@ export function TestimonialsSection() {
         {/* Header centralizado */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <SectionLabel align="center">DEPOIMENTO</SectionLabel>
-          <SectionTitle align="center">Quem já está no Beco conta como é.</SectionTitle>
+          <SectionTitle align="center">Quem já está no Beco Mágico conta como é.</SectionTitle>
         </div>
 
         {/* Depoimento em destaque — layout 2 colunas */}
@@ -37,34 +35,14 @@ export function TestimonialsSection() {
             viewport={viewportConfig}
             className="lg:col-span-5 relative"
           >
-            <div className="relative">
-              <ImagePlaceholder
-                id="IMAGEM-09"
-                description="Jhony Abreu na unidade Beco Manaus"
-                ratio="4/5"
-                dimension="800×1000"
-                className="w-full !aspect-[4/5]"
+            <div className="relative overflow-hidden rounded border border-beco-border/40 bg-beco-bgAlt shadow-[0_24px_80px_-40px_rgba(0,0,0,0.9)]">
+              <video
+                src="/depoimento/Beco_-Video-LP.mov"
+                controls
+                playsInline
+                preload="auto"
+                className="block w-full aspect-[4/5] object-cover"
               />
-
-              {/* Botão play centralizado */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                onClick={() => {
-                  console.log("Abrir vídeo Jhony")
-                  // TODO: implementar modal de vídeo
-                }}
-                aria-label="Reproduzir depoimento em vídeo"
-                className="absolute inset-0 flex items-center justify-center group cursor-pointer"
-              >
-                <div className="size-20 rounded-pill bg-beco-gold flex items-center justify-center shadow-[0_8px_32px_-4px_rgba(215,154,78,0.6)] transition-shadow group-hover:shadow-[0_12px_48px_-4px_rgba(215,154,78,0.8)]">
-                  <Play className="size-7 text-beco-bg ml-1" fill="currentColor" />
-                </div>
-              </motion.button>
-
-              {/* Badge "ASSISTIR DEPOIMENTO" abaixo do play */}
-              <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-sans text-[11px] uppercase tracking-[0.18em] text-beco-ivory/90 bg-beco-bg/80 px-3 py-1 rounded-pill backdrop-blur-sm">
-                Assistir 2:30
-              </p>
             </div>
           </motion.div>
 
@@ -87,36 +65,22 @@ export function TestimonialsSection() {
 
             <blockquote className="relative">
               <p className="font-display italic text-2xl lg:text-3xl text-beco-ivory leading-[1.4]">
-                Quando abri, o público já estava esperando. Foi a primeira vez que inaugurei um negócio com fila no primeiro dia.
+                O depoimento da unidade de Goiânia mostra, na prática, como o modelo do Beco Mágico ganha vida na operação e na experiência dos clientes.
               </p>
 
               <div className="h-px w-16 bg-beco-gold/60 mt-8" />
 
               <footer className="mt-6">
                 <p className="font-display font-semibold text-xl text-beco-ivory">
-                  Jhony Abreu
+                  Unidade Goiânia
                 </p>
                 <p className="font-sans text-sm uppercase tracking-[0.12em] text-beco-mute mt-1">
-                  Franqueado · Manaus · 2025
+                  Franqueado - Goiânia
                 </p>
               </footer>
             </blockquote>
           </motion.div>
         </div>
-
-        {/* Linha de mais social proof / próximos depoimentos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={viewportConfig}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-center mt-20 max-w-2xl mx-auto"
-        >
-          <div className="h-px w-16 bg-beco-gold/30 mx-auto mb-8" />
-          <p className="font-sans italic text-sm text-beco-mute leading-[1.6]">
-            Mais depoimentos de franqueados em vídeo são enviados após o primeiro contato com nossa equipe — incluindo casos de quem chegou sem experiência prévia em food service.
-          </p>
-        </motion.div>
       </Container>
     </Section>
   )

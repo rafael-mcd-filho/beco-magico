@@ -3,10 +3,10 @@
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { ArrowRight, Check, Loader2, Mouse } from "lucide-react"
+import { Check, Loader2, Mouse } from "lucide-react"
 
 import { Container } from "@/components/layout/Container"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
+import { CtaWand } from "@/components/ui/CtaWand"
 
 function maskWhatsapp(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
@@ -114,12 +114,45 @@ function QuickContactForm() {
           </>
         ) : (
           <>
-            Quero ser franqueado do Beco
-            <ArrowRight className="size-4" />
+            QUERO SER FRANQUEADO
+            <CtaWand />
           </>
         )}
       </button>
     </form>
+  )
+}
+
+function HeroStatsMarquee({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`relative z-10 ml-[calc(50%-50vw)] w-screen overflow-hidden border-y border-beco-gold/25 bg-beco-bg/45 py-3 backdrop-blur-sm ${className}`}
+    >
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-beco-bg to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-beco-bg to-transparent" />
+
+      <div className="hero-marquee-track flex w-max items-center gap-10">
+        {[...Array(4)].map((_, groupIndex) => (
+          <div key={groupIndex} className="flex items-center gap-10 px-5">
+            {[
+              ["6+", "unidades"],
+              ["4", "estados"],
+              ["desde", "2020"],
+              ["50 mil+", "clientes/m\u00eas"],
+            ].map(([value, label]) => (
+              <div key={`${groupIndex}-${value}-${label}`} className="flex items-baseline gap-2 whitespace-nowrap">
+                <span className="font-display text-xl font-semibold text-beco-gold md:text-2xl">
+                  {value}
+                </span>
+                <span className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-beco-ivorySoft/85">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -161,16 +194,16 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section ref={heroRef} className="hero-section relative min-h-screen overflow-hidden bg-beco-bg">
+    <section ref={heroRef} className="hero-section relative overflow-hidden bg-beco-bg">
       <div className="hero-bg absolute inset-0 w-full h-[120%]">
-        <ImagePlaceholder
-          id="IMAGEM-01"
-          description="Hero — interior unidade Beco com luz quente, ambiente cenográfico"
-          ratio="21/9"
-          dimension="2400×1350"
-          treatment="overlay marrom gradiente + grão"
-          className="w-full h-full !aspect-auto"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/images/hero/heromobile.png" />
+          <img
+            src="/images/hero/hero.png"
+            alt="Interior de unidade Beco Mágico com luz quente e ambiente cenográfico"
+            className="absolute inset-0 size-full object-cover object-left opacity-35 md:opacity-100"
+          />
+        </picture>
       </div>
 
       <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />
@@ -204,7 +237,7 @@ export function HeroSection() {
         }}
       />
 
-      <Container className="relative z-10 min-h-screen flex flex-col">
+      <Container className="relative z-10 flex flex-col">
         {/* Banner de urgência no topo do Hero */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -220,7 +253,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 flex-1 items-center py-12 lg:pt-16 lg:pb-0 lg:-translate-y-20">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center py-10 lg:pt-12 lg:pb-8">
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
@@ -294,9 +327,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.1 }}
-              className="font-sans text-lg lg:text-xl text-beco-mute leading-[1.6] max-w-prose mt-6"
+              className="font-sans text-lg lg:text-xl text-beco-ivory leading-[1.6] max-w-prose mt-6"
             >
-              O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando — com critério — os franqueados que vão levar esse universo a novas cidades.
+              <span className="box-decoration-clone rounded bg-beco-bg/85 px-2 py-1 font-medium shadow-[0_0_0_1px_rgba(215,154,78,0.45),0_10px_34px_rgba(0,0,0,0.28)] ring-1 ring-beco-gold/45 backdrop-blur-md md:bg-beco-leather/80 md:ring-beco-gold/35">O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando — com critério — os franqueados que vão levar esse universo a novas cidades.</span>
             </motion.p>
 
             <motion.div
@@ -309,26 +342,18 @@ export function HeroSection() {
                 href="#formulario"
                 className="group inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow transition-all"
               >
-                Quero conhecer o modelo de franquia
-                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                QUERO SER FRANQUEADO
+                <CtaWand className="ml-2 size-4 transition-transform group-hover:rotate-12" />
               </a>
-
-              <p className="font-sans text-xs text-beco-mute pl-2 flex items-center gap-2">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-beco-gold/70">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-                Resposta em até 24h úteis · Sem ligação automatizada
-              </p>
             </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.6 }}
-              className="font-sans text-sm text-beco-mute mt-10 leading-relaxed"
             >
-              6+ unidades <span className="text-beco-gold mx-2">·</span> 4 estados <span className="text-beco-gold mx-2">·</span> desde 2020 <span className="text-beco-gold mx-2">·</span> mais de 50 mil clientes/mês
-            </motion.p>
+              <HeroStatsMarquee className="mt-8 lg:hidden" />
+            </motion.div>
             {/* TODO confirmar com cliente */}
           </div>
 
@@ -362,10 +387,19 @@ export function HeroSection() {
         </div>
 
         <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.6 }}
+          className="hidden lg:block"
+        >
+          <HeroStatsMarquee className="mb-8" />
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.9, duration: 0.6 }}
-          className="hidden md:flex flex-col items-center gap-2 pb-8"
+          className="hidden md:flex flex-col items-center gap-2 pb-6"
         >
           <Mouse className="size-5 text-beco-gold/60" />
           <motion.div

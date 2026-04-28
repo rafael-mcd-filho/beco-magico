@@ -33,7 +33,7 @@ export function DifferentialsSection() {
         {/* Header centralizado */}
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel align="center">DIFERENCIAIS</SectionLabel>
-          <SectionTitle align="center">Você abre um Beco. Mas nunca abre sozinho.</SectionTitle>
+          <SectionTitle align="center">Você abre um Beco Mágico. Mas nunca abre sozinho.</SectionTitle>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

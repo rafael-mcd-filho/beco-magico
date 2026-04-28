@@ -1,11 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionTitle } from "@/components/layout/SectionTitle"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 
 export function HistorySection() {
   return (
@@ -48,9 +48,9 @@ export function HistorySection() {
       </div>
 
       <Container>
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-12 items-center">
           {/* Coluna esquerda — texto */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             {/* Label custom em goldGlow pra ficar mais visível em azul */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
@@ -79,7 +79,7 @@ export function HistorySection() {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="font-sans text-lg lg:text-xl text-beco-ivorySoft leading-[1.7] max-w-prose mt-8"
             >
-              Cada cliente do Beco é, em algum nível, um momento marcante: a tarde de domingo que vira lembrança de infância, o aniversário de 8 anos que a criança nunca esquece, a primeira vez que a família inteira sentou pra rir junta em um restaurante.
+              Cada cliente do Beco Mágico é, em algum nível, um momento marcante: a tarde de domingo que vira lembrança de infância, o aniversário de 8 anos que a criança nunca esquece, a primeira vez que a família inteira sentou pra rir junta em um restaurante.
               <br/><br/>
               Pro franqueado, isso vira negócio: <strong className="text-beco-goldGlow font-semibold not-italic">NPS médio de 78 na rede</strong>, frequência de retorno acima da média do setor e <strong className="text-beco-goldGlow font-semibold not-italic">marketing orgânico</strong> que reduz dependência de mídia paga. Quando seu cliente vira contador da sua história, você não compete por preço — compete por memória. E é a única vantagem que concorrente nenhum copia.
             </motion.p>
@@ -96,21 +96,22 @@ export function HistorySection() {
           </div>
 
           {/* Coluna direita — foto sangrando à direita */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-6 relative">
             <motion.div
               initial={{ opacity: 0.98, scale: 0.99 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-15%" }}
               transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
             >
-              <ImagePlaceholder
-                id="IMAGEM-RETRATO-FAMILIA"
-                description="Família/criança no Beco em momento emocional — luz quente"
-                ratio="3/4"
-                dimension="900×1200"
-                treatment="natural, sem retoque excessivo, luz quente"
-                className="w-full !aspect-[3/4]"
-              />
+              <div className="relative w-full aspect-[4/5] overflow-hidden rounded border border-beco-gold/30">
+                <Image
+                  src="/images/historia/a3.png"
+                  alt="Família no Beco Mágico em momento especial"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
           </div>
         </div>

@@ -22,3 +22,17 @@ h1 {
   outline: 2px solid #D79A4E;
   outline-offset: 2px;
 }
+
+.hero-marquee-track {
+  animation: hero-marquee 18s linear infinite;
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

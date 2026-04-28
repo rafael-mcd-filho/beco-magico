@@ -37,7 +37,7 @@ export function LeadFormSection() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <SectionLabel>QUERO SER FRANQUEADO</SectionLabel>
-            <SectionTitle>Está pronto pra abrir o Beco da sua cidade?</SectionTitle>
+            <SectionTitle>Está pronto pra abrir o Beco Mágico da sua cidade?</SectionTitle>
 
             <motion.p
               initial={{ opacity: 0, y: 8 }}

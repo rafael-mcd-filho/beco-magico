@@ -11,6 +11,7 @@ import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
+import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 const faqs = [
@@ -29,7 +30,7 @@ const faqs = [
   },
   {
     q: "Quem cuida do ponto, da obra e da decoração?",
-    a: "Todo o processo é acompanhado pela franqueadora: indicação de fornecedores homologados, projeto arquitetônico padronizado, gestão de obra e treinamento de equipe. Você não precisa virar especialista em obra civil pra abrir um Beco.",
+    a: "Todo o processo é acompanhado pela franqueadora: indicação de fornecedores homologados, projeto arquitetônico padronizado, gestão de obra e treinamento de equipe. Você não precisa virar especialista em obra civil pra abrir um Beco Mágico.",
   },
   {
     q: "Quanto tempo até abrir minha unidade?",
@@ -57,15 +58,15 @@ const faqs = [
   },
   {
     q: "Sou obrigado a comprar de fornecedores específicos?",
-    a: "Sim, em alguns casos. Insumos críticos pra padronização (carne premium, brioche da casa, drinks autorais) precisam vir dos fornecedores homologados — porque é o que garante que um Beco em Goiânia tem o mesmo gosto que um Beco em Manaus. Outros itens (FLV, descartáveis, limpeza) você pode comprar localmente. A lista completa de obrigatórios e livres está na COF e a gente discute caso a caso.",
+    a: "Sim, em alguns casos. Insumos críticos pra padronização (carne premium, brioche da casa, drinks autorais) precisam vir dos fornecedores homologados — porque é o que garante que um Beco Mágico em Goiânia tem o mesmo gosto que um Beco Mágico em Manaus. Outros itens (FLV, descartáveis, limpeza) você pode comprar localmente. A lista completa de obrigatórios e livres está na COF e a gente discute caso a caso.",
   },
   {
-    q: "Como sei que o Beco não vai quebrar daqui a 5 anos?",
+    q: "Como sei que o Beco Mágico não vai quebrar daqui a 5 anos?",
     a: "Não dá pra prometer ausência de risco — qualquer franqueadora que prometa isso está mentindo. O que dá pra mostrar é histórico: 6+ anos de operação, expansão consistente com unidades em 4 estados, faturamento por unidade crescendo ano a ano, e nenhuma unidade fechada por descumprimento da franqueadora até hoje. Em reunião, mostramos balanço operacional, contratos com fornecedores estratégicos e plano de expansão dos próximos 3 anos pra você avaliar a saúde da rede com transparência.",
   },
 ]
 
-function ExtraQuestionBlock({ className = "" }: { className?: string }) {
+function ExtraQuestionBlock({ className = "" }: { className: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -75,7 +76,7 @@ function ExtraQuestionBlock({ className = "" }: { className?: string }) {
       className={`p-6 border border-beco-gold/30 rounded bg-beco-surface/30 ${className}`}
     >
       <h3 className="font-display font-semibold text-lg text-beco-ivory">
-        Tem outra dúvida?
+        Tem outra dúvida
       </h3>
       <p className="font-sans text-sm text-beco-mute mt-2 leading-[1.5]">
         Preencha o formulário abaixo. Nossa equipe responde em até 24h, sem script de telemarketing.
@@ -85,7 +86,7 @@ function ExtraQuestionBlock({ className = "" }: { className?: string }) {
         className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold/70 rounded-pill transition-colors"
       >
         Fazer minha pergunta
-        <span>→</span>
+        <CtaWand />
       </a>
     </motion.div>
   )

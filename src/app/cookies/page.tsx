@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage"
+import { createMetadata } from "../seo"
 
-export const metadata: Metadata = {
-  title: "Política de Cookies | Beco Mágico Franquias",
-  description: "Como cookies e tecnologias similares podem ser usados na página de franquias do Beco Mágico.",
-}
+export const metadata: Metadata = createMetadata({
+    title: "Pol\u00edtica de Cookies | Beco M\u00e1gico Franquias",
+  description:
+        "Entenda como cookies e tecnologias similares podem ser usados na p\u00e1gina de franquias do Beco M\u00e1gico.",
+  path: "/cookies",
+})
 
 export default function CookiesPage() {
   return (
