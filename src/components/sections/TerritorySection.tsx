@@ -8,7 +8,7 @@ import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
 import { Divider } from "@/components/layout/Divider"
-import { BrazilMap } from "@/components/marketing/BrazilMap"
+import { LazyBrazilMap } from "@/components/marketing/LazyBrazilMap"
 import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
@@ -73,7 +73,7 @@ export function TerritorySection() {
 
           {/* Coluna direita — mapa + listas */}
           <div className="lg:col-span-7">
-            <BrazilMap />
+            <LazyBrazilMap />
 
             {/* Listas paralelas */}
             <div className="relative mt-8 grid grid-cols-2 gap-6 lg:gap-8">

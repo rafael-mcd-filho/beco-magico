@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"

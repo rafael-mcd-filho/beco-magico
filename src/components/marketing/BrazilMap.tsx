@@ -69,10 +69,8 @@ function CityMarker({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay }}
       className="pointer-events-none"
+      aria-label={`${city.name} - ${isOpen ? "vaga aberta" : "ocupada"}`}
     >
-      <title>
-        {city.name} - {isOpen ? "vaga aberta" : "ocupada"}
-      </title>
       {enablePulse && (
         <motion.circle
           r={6}

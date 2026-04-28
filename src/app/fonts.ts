@@ -4,19 +4,19 @@ import localFont from "next/font/local"
 export const wizardWorld = localFont({
   src: "../../public/fonts/WizardWorldSimplified-Kxr7.ttf",
   variable: "--font-wizard-world",
-  display: "swap",
+  display: "block",
 })
 
 export const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
+  weight: ["400", "600", "700"],
+  display: "block",
 })
 
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  display: "optional",
 })

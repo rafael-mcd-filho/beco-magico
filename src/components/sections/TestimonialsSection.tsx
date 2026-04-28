@@ -40,7 +40,8 @@ export function TestimonialsSection() {
                 src="/depoimento/Beco_-Video-LP.mov"
                 controls
                 playsInline
-                preload="auto"
+                preload="none"
+                aria-label="Depoimento em vídeo da unidade de Goiânia"
                 className="block w-full aspect-[4/5] object-cover"
               />
             </div>
