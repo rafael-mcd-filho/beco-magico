@@ -109,7 +109,7 @@ export function HeroQuickContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-beco-gold px-6 py-4 font-sans text-base font-semibold text-beco-bg transition-all hover:bg-beco-goldGlow disabled:cursor-not-allowed disabled:opacity-60"
+        className="group cta-gold inline-flex w-full items-center justify-center gap-2 rounded-md bg-beco-gold px-6 py-4 font-sans text-base font-semibold text-beco-bg hover:bg-beco-goldGlow disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? (
           <>

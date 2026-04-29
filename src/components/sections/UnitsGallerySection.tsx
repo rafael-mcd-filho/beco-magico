@@ -15,11 +15,11 @@ import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 const units = [
-  { city: "Manaus", image: "/images/unidades/manaus.png" },
-  { city: "Recife", image: "/images/unidades/recife.png" },
-  { city: "Goiânia", image: "/images/unidades/goiania.png" },
-  { city: "Natal", image: "/images/unidades/natal.png" },
-  { city: "João Pessoa", image: "/images/unidades/joao-pessoa.png" },
+  { city: "Manaus", image: "/images/unidades/manaus.webp" },
+  { city: "Recife", image: "/images/unidades/recife.webp" },
+  { city: "Goiânia", image: "/images/unidades/goiania.webp" },
+  { city: "Natal", image: "/images/unidades/natal.webp" },
+  { city: "João Pessoa", image: "/images/unidades/joao-pessoa.webp" },
 ]
 
 function UnitCard({ unit }: { unit: (typeof units)[number] }) {
@@ -74,10 +74,10 @@ function NextCityCard() {
 
       <a
         href="#formulario"
-        className="mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] px-5 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold rounded-pill transition-colors"
+        className="group cta-outline mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] px-5 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold rounded-md"
       >
         Quero a minha
-        <CtaWand className="size-4 transition-transform group-hover:rotate-12" />
+        <CtaWand className="size-4" />
       </a>
     </motion.div>
   )

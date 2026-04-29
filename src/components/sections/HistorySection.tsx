@@ -105,7 +105,7 @@ export function HistorySection() {
             >
               <div className="relative w-full aspect-[4/5] overflow-hidden rounded border border-beco-gold/30">
                 <Image
-                  src="/images/historia/a3.png"
+                  src="/images/historia/a3.webp"
                   alt="Família no Beco Mágico em momento especial"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

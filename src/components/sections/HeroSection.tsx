@@ -55,9 +55,9 @@ export function HeroSection() {
     <section className="hero-section relative overflow-hidden bg-beco-bg">
       <div className="hero-bg absolute inset-0 h-[120%] w-full">
         <picture>
-          <source media="(max-width: 767px)" srcSet="/images/hero/heromobile.png" />
+          <source media="(max-width: 767px)" srcSet="/images/hero/heromobile.webp" />
           <img
-            src="/images/hero/hero.png"
+            src="/images/hero/hero.webp"
             alt="Interior de unidade Beco Mágico com luz quente e ambiente cenográfico"
             className="absolute inset-0 size-full object-cover object-left opacity-35 md:opacity-100"
             decoding="async"
@@ -167,10 +167,10 @@ export function HeroSection() {
             >
               <a
                 href="#formulario"
-                className="group inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow transition-all"
+                className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow"
               >
                 QUERO SER FRANQUEADO
-                <CtaWand className="ml-2 size-4 transition-transform group-hover:rotate-12" />
+                <CtaWand className="ml-2 size-4" />
               </a>
             </div>
 

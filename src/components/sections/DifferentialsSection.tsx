@@ -1,7 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Theater, GraduationCap, ChefHat, BarChart3, Users, HandCoins } from "lucide-react"
+import {
+  BookOpenCheck,
+  Castle,
+  ChartNoAxesCombined,
+  CookingPot,
+  Handshake,
+  MessagesSquare,
+} from "lucide-react"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
@@ -55,32 +62,32 @@ export function DifferentialsSection() {
         >
           {[
             {
-              icon: Theater,
+              icon: Castle,
               title: "Cenografia que encanta",
               desc: "Projeto arquitetônico imersivo com fornecedores homologados — você recebe a unidade pronta pra abrir, não um projeto pra contratar arquiteto e fazer do zero.",
             },
             {
-              icon: GraduationCap,
+              icon: BookOpenCheck,
               title: "Treinamento operacional intensivo",
               desc: "30 dias de imersão pré-abertura — você e seu time aprendem cardápio, gestão de cozinha, atendimento e protocolo de eventos antes do primeiro cliente entrar.",
             },
             {
-              icon: ChefHat,
+              icon: CookingPot,
               title: "Cardápio com R&D contínuo",
               desc: "Dois lançamentos por ano testados nas unidades-mãe antes de irem pra rede — você não precisa adivinhar tendência ou reinventar prato.",
             },
             {
-              icon: BarChart3,
+              icon: ChartNoAxesCombined,
               title: "BI compartilhado da rede",
               desc: "Dashboard com performance de todas as unidades pra você comparar suas métricas com a média e identificar onde melhorar — saúde financeira aberta entre franqueados.",
             },
             {
-              icon: Users,
+              icon: MessagesSquare,
               title: "Comunidade de franqueados",
               desc: "Você entra numa rede que troca aprendizado em grupo ativo de WhatsApp e encontros trimestrais presenciais — não numa franqueadora que só cobra royalty.",
             },
             {
-              icon: HandCoins,
+              icon: Handshake,
               title: "Renegociação contratual proativa",
               desc: "Se o mercado mudar (como mudou em 2020), revisamos cláusulas de royalty e fornecimento de forma proativa — porque sua sobrevivência é a nossa.",
             },

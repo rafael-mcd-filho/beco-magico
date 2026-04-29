@@ -1,5 +1,6 @@
 "use client"
 
+import type { ReactNode } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import {
@@ -11,6 +12,7 @@ import {
   Award,
   Target,
   Maximize2,
+  type LucideIcon,
 } from "lucide-react"
 
 import { Section } from "@/components/layout/Section"
@@ -20,6 +22,121 @@ import { SectionTitle } from "@/components/layout/SectionTitle"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { CtaWand } from "@/components/ui/CtaWand"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
+import { cn } from "@/lib/utils"
+
+type MetricAccentVariant = "bars" | "gauge" | "steps" | "line"
+
+type MetricCardProps = {
+  icon: LucideIcon
+  value: ReactNode
+  label: string
+  detail: string
+  accent: MetricAccentVariant
+  className?: string
+  featured?: boolean
+  valueClassName?: string
+}
+
+function MetricAccent({ variant }: { variant: MetricAccentVariant }) {
+  if (variant === "gauge") {
+    return (
+      <div className="h-1.5 overflow-hidden rounded-pill bg-beco-bg/70">
+        <div className="h-full w-[76%] rounded-pill bg-gradient-to-r from-beco-goldDark via-beco-gold to-beco-goldGlow" />
+      </div>
+    )
+  }
+
+  if (variant === "steps") {
+    return (
+      <div className="relative flex h-5 items-end justify-between md:h-8">
+        <div className="absolute inset-x-0 bottom-1.5 h-px bg-beco-gold/25 md:bottom-3" />
+        {[0, 1, 2, 3].map((step) => (
+          <span
+            key={step}
+            className="relative h-3.5 w-px bg-beco-gold/65 shadow-[0_0_16px_rgba(215,154,78,0.35)] md:h-5"
+          />
+        ))}
+      </div>
+    )
+  }
+
+  if (variant === "line") {
+    return (
+      <div className="flex h-5 items-center gap-2 md:h-8">
+        <span className="h-px flex-1 bg-beco-gold/25" />
+        <span className="h-px flex-[1.5] bg-beco-gold/45" />
+        <span className="h-px flex-[2] bg-beco-gold/70" />
+      </div>
+    )
+  }
+
+  const bars = [38, 58, 46, 76, 64, 92]
+
+  return (
+    <div className="flex h-5 items-end gap-1.5 md:h-9">
+      {bars.map((height, index) => (
+        <span
+          key={index}
+          className="w-full rounded-t-xs bg-gradient-to-t from-beco-goldDark/60 to-beco-goldGlow/85"
+          style={{ height: `${height}%` }}
+        />
+      ))}
+    </div>
+  )
+}
+
+function MetricCard({
+  icon: Icon,
+  value,
+  label,
+  detail,
+  accent,
+  className,
+  featured = false,
+  valueClassName,
+}: MetricCardProps) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 260, damping: 24 }}
+      className={cn(
+        "group relative min-w-0 overflow-hidden rounded border border-beco-gold/20 bg-beco-leather p-3.5 shadow-[0_18px_55px_rgba(20,12,8,0.22)] transition-[background-color,border-color,box-shadow] duration-300 hover:border-beco-gold/55 hover:bg-beco-surface hover:shadow-[0_24px_70px_rgba(20,12,8,0.32)] sm:p-5 md:p-6",
+        featured ? "min-h-[188px] md:min-h-[270px] md:p-8" : "min-h-[150px] md:min-h-[220px]",
+        className,
+      )}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-beco-gold/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(240,188,110,0.12),transparent_42%)] opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+
+      <div className="relative flex h-full flex-col justify-between gap-3 md:gap-8">
+        <div className="flex items-start justify-between gap-3 md:gap-4">
+          <p className="max-w-[11rem] font-sans text-[10px] font-semibold uppercase leading-tight tracking-[0.13em] text-beco-ivorySoft md:text-[11px]">
+            {label}
+          </p>
+          <span className="flex size-8 shrink-0 items-center justify-center rounded border border-beco-gold/25 bg-beco-bg/35 text-beco-gold transition-colors duration-300 group-hover:border-beco-gold/55 group-hover:bg-beco-gold/10 md:size-10">
+            <Icon className="size-3 md:size-4" strokeWidth={1.5} />
+          </span>
+        </div>
+
+        <div>
+          <p
+            className={cn(
+              "font-display font-semibold leading-[0.95] text-beco-gold [overflow-wrap:anywhere]",
+              featured ? "text-[38px] sm:text-6xl lg:text-7xl" : "text-[32px] sm:text-5xl",
+              valueClassName,
+            )}
+          >
+            {value}
+          </p>
+          <p className="mt-2 font-sans text-xs leading-[1.35] text-beco-mute md:mt-4 md:text-sm">{detail}</p>
+        </div>
+
+        <MetricAccent variant={accent} />
+      </div>
+    </motion.div>
+  )
+}
 
 export function MetricsSection() {
   return (
@@ -75,98 +192,81 @@ export function MetricsSection() {
           </p>
         </motion.div>
 
-        {/* TIER 1 — 4 métricas críticas em destaque */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={viewportConfig}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-beco-gold/15 mt-20"
+          className="mt-20 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-4"
         >
-          {[
-            {
-              icon: TrendingUp,
-              value: <AnimatedCounter to={3} prefix="R$ " suffix="MM+" />,
-              label: "FATURAMENTO MÉDIO ANUAL",
-              isCounter: true,
-            },
-            {
-              icon: Percent,
-              value: "15-22%",
-              label: "MARGEM LÍQUIDA",
-              isCounter: false,
-            },
-            {
-              icon: Clock,
-              value: "18-22m",
-              label: "PAYBACK MÉDIO",
-              isCounter: false,
-            },
-            {
-              icon: Receipt,
-              value: <AnimatedCounter to={85} prefix="R$ " />,
-              label: "TICKET MÉDIO",
-              isCounter: true,
-            },
-          ].map((item, i) => {
-            const Icon = item.icon
-            return (
-              <motion.div key={i} variants={fadeUp} className="bg-beco-leather p-8 lg:p-12 relative">
-                <Icon className="absolute top-6 right-6 size-5 text-beco-gold/40" strokeWidth={1} />
-                <p className="font-display font-semibold text-beco-gold text-[56px] lg:text-[88px] leading-none">
-                  {item.value}
-                </p>
-                <p className="font-sans text-[13px] uppercase tracking-[0.1em] text-beco-ivory mt-3 leading-tight">
-                  {item.label}
-                </p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-
-        {/* TIER 2 — 4 métricas operacionais em fonte menor */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportConfig}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-beco-gold/15 mt-px"
-        >
-          {[
-            {
-              icon: DollarSign,
-              value: "R$ 500-750k",
-              label: "INVESTIMENTO INICIAL",
-            },
-            {
-              icon: Award,
-              value: "R$ 90k",
-              label: "TAXA DE FRANQUIA",
-            },
-            {
-              icon: Target,
-              value: "4,5% + 2,5%",
-              label: "ROYALTY + FUNDO MKT",
-            },
-            {
-              icon: Maximize2,
-              value: <AnimatedCounter to={265} suffix="m²" />,
-              label: "METRAGEM MÍNIMA",
-            },
-          ].map((item, i) => {
-            const Icon = item.icon
-            return (
-              <motion.div key={i} variants={fadeUp} className="bg-beco-leather p-6 lg:p-8 relative">
-                <Icon className="absolute top-5 right-5 size-4 text-beco-gold/40" strokeWidth={1} />
-                <p className="font-display font-semibold text-beco-gold text-[36px] lg:text-[48px] leading-none">
-                  {item.value}
-                </p>
-                <p className="font-sans text-[11px] uppercase tracking-[0.1em] text-beco-ivory mt-3 leading-tight">
-                  {item.label}
-                </p>
-              </motion.div>
-            )
-          })}
+          <MetricCard
+            icon={TrendingUp}
+            value={<AnimatedCounter to={3} prefix="R$ " suffix="MM+" />}
+            label="Faturamento médio anual"
+            detail="Receita média da rede em unidades maduras."
+            accent="bars"
+            featured
+            className="md:col-span-2 xl:col-span-2"
+          />
+          <MetricCard
+            icon={Percent}
+            value="15-22%"
+            label="Margem líquida"
+            detail="Faixa de margem observada na operação."
+            accent="gauge"
+          />
+          <MetricCard
+            icon={Clock}
+            value="18-22m"
+            label="Payback médio"
+            detail="Retorno estimado para praças qualificadas."
+            accent="steps"
+          />
+          <MetricCard
+            icon={Receipt}
+            value={<AnimatedCounter to={85} prefix="R$ " />}
+            label="Ticket médio"
+            detail="Consumo médio por cliente na rede."
+            accent="line"
+          />
+          <MetricCard
+            icon={DollarSign}
+            value="R$ 500-750k"
+            label="Investimento inicial"
+            detail="Faixa estimada conforme ponto e cidade."
+            accent="bars"
+            featured
+            className="md:col-span-2 xl:col-span-2"
+            valueClassName="text-4xl sm:text-5xl lg:text-6xl"
+          />
+          <MetricCard
+            icon={Award}
+            value="R$ 90k"
+            label="Taxa de franquia"
+            detail="Entrada no modelo, marca e transferência de know-how."
+            accent="line"
+          />
+          <MetricCard
+            icon={Target}
+            value={
+              <>
+                4,5% <span className="text-beco-goldGlow">+</span> 2,5%
+              </>
+            }
+            label="Royalty + fundo MKT"
+            detail="Percentuais recorrentes sobre faturamento."
+            accent="gauge"
+            className="xl:col-span-2"
+            valueClassName="text-4xl sm:text-5xl lg:text-6xl"
+          />
+          <MetricCard
+            icon={Maximize2}
+            value={<AnimatedCounter to={265} suffix="m²" />}
+            label="Metragem mínima"
+            detail="Área recomendada para acomodar salão, operação e experiência."
+            accent="steps"
+            className="xl:col-span-2"
+          />
         </motion.div>
 
         {/* Foto decorativa full-width abaixo do grid */}
@@ -179,7 +279,7 @@ export function MetricsSection() {
         >
           <div className="relative w-full aspect-[21/9] overflow-hidden rounded border border-beco-gold/30">
             <Image
-              src="/images/pratos/tabua.png"
+              src="/images/pratos/tabua.webp"
               alt="Tábua premium com hambúrgueres, drinks e pratos do Beco Mágico"
               fill
               sizes="(min-width: 1024px) 1200px, 100vw"
@@ -199,10 +299,10 @@ export function MetricsSection() {
         >
           <a
             href="#formulario"
-            className="group inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow transition-all"
+            className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow"
           >
             Quero receber a apresentação
-            <CtaWand className="ml-2 size-4 transition-transform group-hover:rotate-12" />
+            <CtaWand className="ml-2 size-4" />
           </a>
         </motion.div>
       </Container>

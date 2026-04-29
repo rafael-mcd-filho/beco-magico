@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
@@ -156,9 +157,9 @@ export function ExperienceSection() {
       </Section>
 
       <Section bg="primary">
-        <Container>
+        <Container size="full" className="max-w-[1500px]">
           <div className="text-center">
-            <SectionLabel align="center">O BECO JÁ FOI DESTAQUE EM</SectionLabel>
+            <SectionLabel align="center">O Beco Mágico na Midia</SectionLabel>
           </div>
 
           <motion.div
@@ -166,43 +167,52 @@ export function ExperienceSection() {
             initial="hidden"
             whileInView="show"
             viewport={viewportConfig}
-            className="grid md:grid-cols-3 gap-12 mt-16"
+            className="mt-12 grid gap-6 xl:grid-cols-2 xl:gap-5"
           >
             {[
               {
-                name: "[Veículo 1]",
-                desc: "\"A hamburgueria que transformou jantar em experiência imersiva\"",
+                src: "/images/reportagens/veiculo-1.webp",
+                alt: "Reportagem sobre o Beco Mágico",
+                label: "Crescimento",
+                title: "Franquia de restaurante temático cresce 500% em 3 anos",
+                width: 1665,
+                height: 945,
               },
               {
-                name: "[Prêmio / Ranking ABF]",
-                desc: "Reconhecimento em expansão de franquias",
+                src: "/images/reportagens/veiculo-2.webp",
+                alt: "Reportagem destacando o Beco Mágico",
+                label: "Mídia",
+                title: "Beco Mágico ganha destaque na mídia",
+                width: 1355,
+                height: 1160,
               },
-              {
-                name: "[Veículo 2]",
-                desc: "Reportagem sobre experiências gastronômicas no Brasil",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
+            ].map((item) => (
+              <motion.figure
+                key={item.src}
                 variants={fadeUp}
-                className="text-center"
+                className="group relative overflow-hidden rounded border border-beco-gold/35 bg-beco-leather p-2 shadow-[0_20px_0_rgba(42,24,16,0.65),0_28px_90px_-48px_rgba(0,0,0,0.9)] transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-beco-gold/70 hover:shadow-[0_20px_0_rgba(42,24,16,0.55),0_34px_100px_-44px_rgba(215,154,78,0.35)]"
               >
-                <p className="font-display font-semibold text-2xl uppercase text-beco-ivory">
-                  {item.name}
-                </p>
-                <p className="font-sans italic text-sm text-beco-mute mt-3 leading-relaxed">
-                  {item.desc}
-                </p>
-                {i < 2 && (
-                  <div className="md:hidden h-px w-12 bg-beco-gold/40 mx-auto mt-8" />
-                )}
-              </motion.div>
+                <div className="pointer-events-none absolute inset-0 rounded border border-beco-gold/10" />
+                <figcaption className="px-3 pb-3 pt-2 md:px-4 md:pb-4 md:pt-3">
+                  <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-beco-gold">
+                    {item.label}
+                  </p>
+                  <h3 className="mt-1 max-w-full font-display text-xl font-semibold leading-tight text-beco-ivory sm:text-2xl xl:whitespace-nowrap xl:text-[clamp(18px,1.35vw,22px)] xl:leading-none">
+                    {item.title}
+                  </h3>
+                </figcaption>
+                <div className="relative aspect-video overflow-hidden rounded-sm bg-beco-bg">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-contain object-center"
+                  />
+                </div>
+              </motion.figure>
             ))}
           </motion.div>
-
-          <p className="text-center font-sans italic text-xs text-beco-mute/60 mt-12">
-            {/* TODO: substituir [Veículo 1] e [Veículo 2] pelos veículos reais quando confirmar com cliente */}
-          </p>
         </Container>
       </Section>
     </>

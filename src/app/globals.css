@@ -23,6 +23,55 @@ h1 {
   outline-offset: 2px;
 }
 
+@layer components {
+  .cta-gold {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 10px 28px rgba(215, 154, 78, 0.22);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      color 0.3s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .cta-gold:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.36),
+      0 14px 36px rgba(215, 154, 78, 0.34);
+  }
+
+  .cta-outline {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 8px 24px rgba(215, 154, 78, 0.08);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .cta-outline:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 12px 32px rgba(215, 154, 78, 0.22);
+  }
+
+  .cta-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .group:hover .cta-icon {
+    transform: translate3d(2px, -1px, 0) rotate(12deg);
+  }
+}
+
 .hero-marquee-track {
   animation: hero-marquee 18s linear infinite;
 }
@@ -139,10 +188,17 @@ h1 {
   .hero-copy-highlight::before,
   .hero-copy-text,
   .hero-scroll-line,
-  .hero-marquee-track {
+  .hero-marquee-track,
+  .cta-icon {
     animation: none;
     clip-path: none;
     opacity: 1;
+    transform: none;
+  }
+
+  .cta-gold:hover:not(:disabled),
+  .cta-outline:hover,
+  .group:hover .cta-icon {
     transform: none;
   }
 }

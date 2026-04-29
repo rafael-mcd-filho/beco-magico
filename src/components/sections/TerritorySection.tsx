@@ -63,7 +63,7 @@ export function TerritorySection() {
               </p>
               <a
                 href="#formulario"
-                className="inline-flex items-center mt-6 px-6 py-3 rounded-pill border border-beco-gold/60 text-beco-gold hover:bg-beco-gold hover:text-beco-bg transition-all font-sans font-semibold text-sm"
+                className="group cta-outline inline-flex items-center mt-6 px-6 py-3 rounded-md border border-beco-gold/60 text-beco-gold hover:bg-beco-gold hover:text-beco-bg font-sans font-semibold text-sm"
               >
                 Verificar minha cidade
                 <CtaWand className="ml-2 size-4" />

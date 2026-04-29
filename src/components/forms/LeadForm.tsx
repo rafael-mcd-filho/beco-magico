@@ -152,7 +152,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full mt-6 inline-flex items-center justify-center gap-2 rounded-pill bg-beco-gold text-beco-bg font-sans font-semibold text-base px-8 py-5 hover:bg-beco-goldGlow disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+        className="group cta-gold w-full mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-beco-gold text-beco-bg font-sans font-semibold text-base px-8 py-5 hover:bg-beco-goldGlow disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {submitting ? (
           <>

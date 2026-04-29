@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://franquias.becomagico.com.br"
 const siteName = "Beco M\u00e1gico Franquias"
-const defaultImage = "/og-image.png"
+const defaultImage = "/og-image.webp"
 
 type SeoConfig = {
   title: string

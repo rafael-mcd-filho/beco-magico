@@ -31,7 +31,7 @@ export function FooterSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16 lg:py-20">
             <div className="lg:col-span-1">
               <img
-                src="/images/logo/logo-removebg-preview.png"
+                src="/images/logo/logo-removebg-preview.webp"
                 alt="Beco Mágico"
                 className="h-20 w-auto"
               />
@@ -107,7 +107,7 @@ export function FooterSection() {
 
               <a
                 href="#formulario"
-                className="inline-flex items-center mt-6 px-5 py-2.5 rounded-pill border border-beco-gold/60 text-beco-gold text-sm font-sans font-semibold hover:bg-beco-gold hover:text-beco-bg transition-all"
+                className="group cta-outline inline-flex items-center mt-6 px-5 py-2.5 rounded-md border border-beco-gold/60 text-beco-gold text-sm font-sans font-semibold hover:bg-beco-gold hover:text-beco-bg"
               >
                 Quero ser franqueado
                 <CtaWand className="ml-2 size-4" />
@@ -149,7 +149,7 @@ export function FooterSection() {
                 className="group"
               >
                 <img
-                  src="/selos/abf.png"
+                  src="/selos/abf.webp"
                   alt="ABF — Associação Brasileira de Franchising"
                   className="h-10 md:h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500"
                 />

@@ -57,12 +57,12 @@ export function StickyNav() {
           className="inline-flex items-center gap-2.5 font-wizard text-base md:text-lg font-normal text-beco-gold whitespace-nowrap"
         >
           <Image
-            src="/images/logo/logo-removebg-preview.png"
+            src="/images/logo/logo-removebg-preview.webp"
             alt="Beco Mágico"
-            width={48}
-            height={48}
+            width={64}
+            height={64}
             priority
-            className="size-12 object-contain md:size-9"
+            className="size-16 object-contain md:size-9"
           />
           <span className="hidden md:inline">Beco Mágico</span>
         </a>
@@ -82,7 +82,7 @@ export function StickyNav() {
 
         <a
           href="#formulario"
-          className="inline-flex items-center justify-center rounded-pill bg-beco-gold text-beco-bg font-wizard font-normal text-sm px-4 md:px-5 py-2 md:py-2.5 hover:bg-beco-goldGlow transition-all whitespace-nowrap shrink-0"
+          className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-wizard font-normal text-sm px-4 md:px-5 py-2 md:py-2.5 hover:bg-beco-goldGlow whitespace-nowrap shrink-0"
         >
           <span className="hidden sm:inline">Quero ser franqueado</span>
           <span className="sm:hidden">Falar agora</span>
