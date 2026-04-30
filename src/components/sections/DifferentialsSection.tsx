@@ -1,13 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   BookOpenCheck,
   Castle,
   ChartNoAxesCombined,
-  CookingPot,
-  Handshake,
-  MessagesSquare,
 } from "lucide-react"
 
 import { Section } from "@/components/layout/Section"
@@ -15,6 +13,17 @@ import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
+
+const differentialImages = [
+  {
+    src: "/images/diferenciais/diferencial-1.webp",
+    alt: "Imagem de apoio dos diferenciais do Beco Mágico",
+  },
+  {
+    src: "/images/diferenciais/diferencial-2.webp",
+    alt: "Detalhe visual dos diferenciais da franquia Beco Mágico",
+  },
+]
 
 export function DifferentialsSection() {
   return (
@@ -52,7 +61,7 @@ export function DifferentialsSection() {
           </motion.p>
         </div>
 
-        {/* Grid 3x2 de benefícios */}
+        {/* Grid de benefícios */}
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -72,24 +81,9 @@ export function DifferentialsSection() {
               desc: "30 dias de imersão pré-abertura — você e seu time aprendem cardápio, gestão de cozinha, atendimento e protocolo de eventos antes do primeiro cliente entrar.",
             },
             {
-              icon: CookingPot,
-              title: "Cardápio com R&D contínuo",
-              desc: "Dois lançamentos por ano testados nas unidades-mãe antes de irem pra rede — você não precisa adivinhar tendência ou reinventar prato.",
-            },
-            {
               icon: ChartNoAxesCombined,
               title: "BI compartilhado da rede",
               desc: "Dashboard com performance de todas as unidades pra você comparar suas métricas com a média e identificar onde melhorar — saúde financeira aberta entre franqueados.",
-            },
-            {
-              icon: MessagesSquare,
-              title: "Comunidade de franqueados",
-              desc: "Você entra numa rede que troca aprendizado em grupo ativo de WhatsApp e encontros trimestrais presenciais — não numa franqueadora que só cobra royalty.",
-            },
-            {
-              icon: Handshake,
-              title: "Renegociação contratual proativa",
-              desc: "Se o mercado mudar (como mudou em 2020), revisamos cláusulas de royalty e fornecimento de forma proativa — porque sua sobrevivência é a nossa.",
             },
           ].map((item, i) => {
             const Icon = item.icon
@@ -112,6 +106,30 @@ export function DifferentialsSection() {
               </motion.div>
             )
           })}
+        </motion.div>
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportConfig}
+          className="mt-16 grid gap-4 md:grid-cols-2 lg:gap-6"
+        >
+          {differentialImages.map((image) => (
+            <motion.figure
+              key={image.src}
+              variants={fadeUp}
+              className="relative aspect-[4/5] overflow-hidden rounded border border-beco-gold/25 bg-beco-forestDark shadow-[0_24px_80px_-48px_rgba(0,0,0,0.8)]"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </motion.figure>
+          ))}
         </motion.div>
       </Container>
     </Section>

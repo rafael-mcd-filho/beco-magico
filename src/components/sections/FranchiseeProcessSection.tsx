@@ -116,7 +116,7 @@ function StepCard({
           </p>
           <div className="mt-2 h-px w-9 bg-beco-gold/60" />
         </div>
-        <span className="inline-flex max-w-24 shrink-0 items-center rounded-pill border border-beco-gold/25 px-2 py-1 text-right font-sans text-[9px] font-semibold uppercase leading-tight tracking-[0.1em] text-beco-gold xl:max-w-28 xl:px-2.5 xl:text-[10px]">
+        <span className="inline-flex max-w-24 shrink-0 items-center rounded-pill border border-beco-gold/25 px-2 py-1 text-right font-sans text-[9px] font-semibold uppercase leading-tight tracking-[0.1em] text-beco-gold lg:justify-center lg:text-center xl:max-w-28 xl:px-2.5 xl:text-[10px]">
           {step.badge}
         </span>
       </div>

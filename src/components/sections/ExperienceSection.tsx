@@ -111,15 +111,30 @@ export function ExperienceSection() {
         </div>
       </section>
 
-      <Section bg="leather" transitionTo="primary">
-        <Container size="narrow">
+      <section className="relative overflow-hidden bg-beco-leather py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <Image
+            src="/images/fundo.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            aria-hidden="true"
+            className="object-cover object-left opacity-[0.55] md:object-center"
+          />
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-beco-leather via-beco-leather/65 to-transparent md:h-24" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-beco-bg via-beco-bg/60 to-transparent md:h-28" />
+        </div>
+
+        <Container size="narrow" className="relative z-10">
           <div className="text-center mb-12">
-            <SectionLabel align="center">RECONHECIMENTO</SectionLabel>
+            <SectionLabel align="center" className="text-white drop-shadow-[0_2px_12px_rgba(20,12,8,0.65)]">
+              RECONHECIMENTO
+            </SectionLabel>
           </div>
 
           <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {/* Linha vertical separadora central */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-beco-gold/30 -translate-x-1/2" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/25 -translate-x-1/2" />
 
             <motion.div
               variants={fadeUp}
@@ -128,10 +143,10 @@ export function ExperienceSection() {
               viewport={viewportConfig}
               className="text-center"
             >
-              <p className="font-display font-semibold text-beco-gold text-[64px] md:text-[96px] leading-none">
+              <p className="font-display font-semibold text-white text-[64px] md:text-[96px] leading-none drop-shadow-[0_4px_18px_rgba(20,12,8,0.55)]">
                 <AnimatedCounter to={50} suffix="k+" />
               </p>
-              <p className="font-sans text-sm uppercase tracking-[0.12em] text-beco-ivory mt-4 leading-tight max-w-xs mx-auto">
+              <p className="font-sans text-sm uppercase tracking-[0.12em] text-white mt-4 leading-tight max-w-xs mx-auto drop-shadow-[0_2px_12px_rgba(20,12,8,0.7)]">
                 Clientes atendidos por mês na rede — com frequência de retorno acima da média do setor
               </p>
             </motion.div>
@@ -144,17 +159,17 @@ export function ExperienceSection() {
               transition={{ delay: 0.15 }}
               className="text-center"
             >
-              <p className="font-display font-semibold text-beco-gold text-[64px] md:text-[96px] leading-none flex items-baseline justify-center gap-2">
+              <p className="font-display font-semibold text-white text-[64px] md:text-[96px] leading-none flex items-baseline justify-center gap-2 drop-shadow-[0_4px_18px_rgba(20,12,8,0.55)]">
                 <AnimatedCounter to={4.8} decimals={1} />
                 <span className="text-[36px] md:text-[48px]">★</span>
               </p>
-              <p className="font-sans text-sm uppercase tracking-[0.12em] text-beco-ivory mt-4 leading-tight max-w-xs mx-auto">
+              <p className="font-sans text-sm uppercase tracking-[0.12em] text-white mt-4 leading-tight max-w-xs mx-auto drop-shadow-[0_2px_12px_rgba(20,12,8,0.7)]">
                 Nota média no Google e iFood — entre as 5 melhores hamburguerias temáticas do Brasil
               </p>
             </motion.div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       <Section bg="primary">
         <Container size="full" className="max-w-[1500px]">

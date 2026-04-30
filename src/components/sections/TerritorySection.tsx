@@ -10,6 +10,7 @@ import { SectionTitle } from "@/components/layout/SectionTitle"
 import { Divider } from "@/components/layout/Divider"
 import { LazyBrazilMap } from "@/components/marketing/LazyBrazilMap"
 import { CtaWand } from "@/components/ui/CtaWand"
+import { wizardWorld } from "@/app/fonts"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
 export function TerritorySection() {
@@ -28,23 +29,30 @@ export function TerritorySection() {
           {/* Coluna esquerda — texto */}
           <div className="lg:col-span-5">
             <SectionLabel>TERRITÓRIO</SectionLabel>
-            <SectionTitle>
-              <span className="block">O Beco Mágico tem</span>
-              <span className="block">um franqueado</span>
-              <span className="block">por cidade.</span>
-              <span className="mt-3 block">Nada mais,</span>
-              <span className="block">nada menos.</span>
+            <SectionTitle
+              className={`${wizardWorld.className} normal-case`}
+              aria-label="CADA FRANQUEADO TEM UMA ÁREA ESTRATÉGICA DE ATUAÇÃO."
+            >
+              <span className="block">cada franqueado tem</span>
+              <span className="block">uma área estratégica</span>
+              <span className="block">de atuação.</span>
             </SectionTitle>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportConfig}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="font-sans text-lg text-beco-ivorySoft mt-6 leading-[1.6]"
+              className="font-sans text-lg text-beco-ivorySoft mt-6 space-y-4 leading-[1.6]"
             >
-              É o que garante território exclusivo — e é o que torna cada praça disponível uma oportunidade real, não uma entre muitas.
-            </motion.p>
+              <p>Nada de abrir unidades sem critério.</p>
+              <p>
+                A expansão do Beco Mágico é planejada conforme o tamanho da cidade, o número de moradores e o potencial de consumo de cada região.
+              </p>
+              <p>
+                Em cidades com maior demanda, novas unidades podem ser liberadas por território, sempre respeitando uma divisão inteligente de mercado.
+              </p>
+            </motion.div>
 
             <Divider className="mt-10" />
 
@@ -92,7 +100,7 @@ export function TerritorySection() {
                 <ul className="space-y-3">
                   {[
                     "Fortaleza", "Salvador", "Maceió", "Belém",
-                    "Teresina", "São Luís", "Campina Grande", "Porto Alegre",
+                    "Teresina", "São Luís", "Campina Grande",
                   ].map((city) => (
                     <motion.li
                       key={city}
@@ -118,7 +126,7 @@ export function TerritorySection() {
                 <ul className="space-y-3">
                   {[
                     "Recife", "João Pessoa", "Manaus",
-                    "Goiânia", "Natal", "Aracaju",
+                    "Goiânia", "Natal",
                   ].map((city) => (
                     <motion.li
                       key={city}

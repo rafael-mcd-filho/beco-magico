@@ -37,10 +37,11 @@ export function TestimonialsSection() {
           >
             <div className="relative overflow-hidden rounded border border-beco-border/40 bg-beco-bgAlt shadow-[0_24px_80px_-40px_rgba(0,0,0,0.9)]">
               <video
-                src="/depoimento/Beco_-Video-LP.mov"
+                src="/depoimento/Beco_-Video-LP.mp4"
+                poster="/depoimento/Beco_-Video-LP-poster.jpg"
                 controls
                 playsInline
-                preload="none"
+                preload="metadata"
                 aria-label="Depoimento em vídeo da unidade de Goiânia"
                 className="block w-full aspect-[4/5] object-cover"
               />

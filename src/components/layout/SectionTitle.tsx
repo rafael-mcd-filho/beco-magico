@@ -10,6 +10,7 @@ type SectionTitleProps = {
   size?: "hero" | "section"
   className?: string
   align?: "left" | "center"
+  "aria-label"?: string
 }
 
 const sizeMap = {
@@ -23,6 +24,7 @@ export function SectionTitle({
   size = "section",
   className,
   align = "left",
+  "aria-label": ariaLabel,
 }: SectionTitleProps) {
   const Tag = as
 
@@ -34,6 +36,7 @@ export function SectionTitle({
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
       <Tag
+        aria-label={ariaLabel}
         className={cn(
           "font-wizard",
           "font-normal text-beco-ivory",

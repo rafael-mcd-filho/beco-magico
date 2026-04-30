@@ -23,7 +23,6 @@ const cities: City[] = [
   { name: "Manaus", coordinates: [-60.0217, -3.119], status: "occupied" },
   { name: "Goiânia", coordinates: [-49.2643, -16.6869], status: "occupied" },
   { name: "Natal", coordinates: [-35.2094, -5.7945], status: "occupied" },
-  { name: "Aracaju", coordinates: [-37.0731, -10.9472], status: "occupied" },
   { name: "Fortaleza", coordinates: [-38.5267, -3.7319], status: "open" },
   { name: "Salvador", coordinates: [-38.5014, -12.9777], status: "open" },
   { name: "Maceio", coordinates: [-35.7353, -9.6658], status: "open" },
@@ -31,7 +30,6 @@ const cities: City[] = [
   { name: "Teresina", coordinates: [-42.8019, -5.0892], status: "open" },
   { name: "Sao Luis", coordinates: [-44.3028, -2.5307], status: "open" },
   { name: "Campina Grande", coordinates: [-35.8811, -7.2291], status: "open" },
-  { name: "Porto Alegre", coordinates: [-51.2177, -30.0346], status: "open" },
 ]
 
 function useIsDesktop() {
