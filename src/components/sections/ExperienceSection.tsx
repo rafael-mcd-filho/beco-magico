@@ -147,7 +147,7 @@ export function ExperienceSection() {
               className="text-center"
             >
               <p className="font-display font-semibold text-white text-[64px] md:text-[96px] leading-none drop-shadow-[0_4px_18px_rgba(20,12,8,0.55)]">
-                <AnimatedCounter to={50} suffix="k+" />
+                <AnimatedCounter to={15} suffix="k+" />
               </p>
               <p className="font-sans text-sm uppercase tracking-[0.12em] text-white mt-4 leading-tight max-w-xs mx-auto drop-shadow-[0_2px_12px_rgba(20,12,8,0.7)]">
                 Clientes atendidos por mês na rede, com frequência de retorno acima da média do setor
