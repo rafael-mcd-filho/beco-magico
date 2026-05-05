@@ -9,8 +9,8 @@ const heroCopy =
 
 function AnimatedHeroCopy() {
   return (
-    <span className="hero-copy-highlight" aria-label={heroCopy}>
-      <span className="hero-copy-text" aria-hidden="true">
+    <span className="hero-copy-highlight">
+      <span className="hero-copy-text">
         {heroCopy}
       </span>
     </span>
