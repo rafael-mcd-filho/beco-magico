@@ -87,8 +87,9 @@ export function HeroSection() {
         src="/decorations/broom-icon.svg"
         alt=""
         aria-hidden="true"
+        width={120}
+        height={120}
         className="absolute top-12 right-12 w-[120px] opacity-[0.12] pointer-events-none hidden lg:block"
-        loading="lazy"
         style={{ transform: "rotate(-25deg)" }}
       />
 

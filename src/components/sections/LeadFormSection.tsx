@@ -23,6 +23,9 @@ export function LeadFormSection() {
         src="/decorations/magic-circle.svg"
         alt=""
         aria-hidden="true"
+        width={400}
+        height={400}
+        loading="lazy"
         className="absolute -top-20 -right-20 w-[500px] opacity-[0.06] pointer-events-none hidden lg:block"
       />
 
@@ -30,6 +33,9 @@ export function LeadFormSection() {
         src="/decorations/magic-circle.svg"
         alt=""
         aria-hidden="true"
+        width={400}
+        height={400}
+        loading="lazy"
         className="absolute -bottom-16 -left-16 w-[300px] opacity-[0.05] pointer-events-none hidden md:block"
       />
 

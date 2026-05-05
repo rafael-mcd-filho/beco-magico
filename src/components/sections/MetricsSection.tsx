@@ -145,6 +145,9 @@ export function MetricsSection() {
         src="/decorations/leaves-corner.svg"
         alt=""
         aria-hidden="true"
+        width={300}
+        height={300}
+        loading="lazy"
         className="absolute top-0 left-0 w-[300px] lg:w-[400px] opacity-[0.10] pointer-events-none"
       />
 
@@ -152,6 +155,9 @@ export function MetricsSection() {
         src="/decorations/leaves-corner.svg"
         alt=""
         aria-hidden="true"
+        width={300}
+        height={300}
+        loading="lazy"
         className="absolute bottom-0 right-0 w-[300px] lg:w-[400px] opacity-[0.10] pointer-events-none"
         style={{ transform: "scaleX(-1) scaleY(-1)" }}
       />
