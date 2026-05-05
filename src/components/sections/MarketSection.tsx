@@ -39,7 +39,7 @@ export function MarketSection() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="font-sans text-lg text-beco-mute mt-6 leading-[1.6]"
           >
-            Os brasileiros consomem cada vez mais fora de casa. E dentro do food service, hamburguerias temáticas premium são o segmento que mais cresce — não é tendência, é mudança estrutural de consumo.
+            Os brasileiros consomem cada vez mais fora de casa. E dentro do food service, hamburguerias temáticas premium são o segmento que mais cresce. Não é tendência: é mudança estrutural de consumo.
           </motion.p>
         </div>
 
@@ -55,12 +55,12 @@ export function MarketSection() {
             {
               counter: { to: 615, prefix: "R$ ", suffix: " B", decimals: 0, width: "min-w-[6ch]" },
               label: "MERCADO DE ALIMENTAÇÃO FORA DE CASA",
-              desc: "Setor que cresce de forma resiliente mesmo em períodos de crise — necessidade básica com ticket flexível.",
+              desc: "Setor que cresce de forma resiliente mesmo em períodos de crise: necessidade básica com ticket flexível.",
             },
             {
               counter: { to: 5.9, suffix: "%", decimals: 1, width: "min-w-[3.8ch]" },
               label: "CAGR DO FOOD SERVICE BRASILEIRO",
-              desc: "Taxa de crescimento anual composta — um dos setores mais resilientes do varejo nacional.",
+              desc: "Taxa de crescimento anual composta, um dos setores mais resilientes do varejo nacional.",
             },
             {
               counter: { to: 25, suffix: "%", decimals: 0, width: "min-w-[2.8ch]" },
@@ -108,7 +108,7 @@ export function MarketSection() {
               Mas o que importa não é o tamanho do mercado.
             </h3>
             <p className="font-sans text-lg text-beco-ivorySoft mt-6 leading-[1.7]">
-              O que importa é que dentro desse mercado, hamburguerias temáticas premium ocupam um espaço pequeno e cobiçado. Em quase toda cidade brasileira de médio porte, ainda há demanda reprimida por uma experiência gastronômica imersiva — e quem chega primeiro, fica.
+              O que importa é que dentro desse mercado, hamburguerias temáticas premium ocupam um espaço pequeno e cobiçado. Em quase toda cidade brasileira de médio porte, ainda há demanda reprimida por uma experiência gastronômica imersiva. E quem chega primeiro, fica.
             </p>
           </div>
         </motion.div>

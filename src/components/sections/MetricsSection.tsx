@@ -188,7 +188,7 @@ export function MetricsSection() {
             &ldquo;E se a operação tiver dificuldade&rdquo;
           </p>
           <p className="font-sans text-sm lg:text-base text-beco-ivorySoft mt-4 leading-[1.6]">
-            Nenhuma franquia é blindada contra adversidade — e qualquer franqueadora que diga o contrário está mentindo. O que diferencia o Beco Mágico é o que acontece quando algo não vai bem: equipe de campo disponível, revisão de plano de gestão e, quando necessário, intervenção direta na operação. <strong className="text-beco-gold not-italic font-semibold">Não existe unidade abandonada na nossa rede.</strong>
+            Nenhuma franquia é blindada contra adversidade. Qualquer franqueadora que diga o contrário está mentindo. O que diferencia o Beco Mágico é o que acontece quando algo não vai bem: equipe de campo disponível, revisão de plano de gestão e, quando necessário, intervenção direta na operação. <strong className="text-beco-gold not-italic font-semibold">Não existe unidade abandonada na nossa rede.</strong>
           </p>
         </motion.div>
 

@@ -81,7 +81,7 @@ export function HistorySection() {
             >
               Cada cliente do Beco Mágico é, em algum nível, um momento marcante: a tarde de domingo que vira lembrança de infância, o aniversário de 8 anos que a criança nunca esquece, a primeira vez que a família inteira sentou pra rir junta em um restaurante.
               <br/><br/>
-              Pro franqueado, isso vira negócio: <strong className="text-beco-goldGlow font-semibold not-italic">NPS médio de 78 na rede</strong>, frequência de retorno acima da média do setor e <strong className="text-beco-goldGlow font-semibold not-italic">marketing orgânico</strong> que reduz dependência de mídia paga. Quando seu cliente vira contador da sua história, você não compete por preço — compete por memória. E é a única vantagem que concorrente nenhum copia.
+              Pro franqueado, isso vira negócio: <strong className="text-beco-goldGlow font-semibold not-italic">NPS médio de 78 na rede</strong>, frequência de retorno acima da média do setor e <strong className="text-beco-goldGlow font-semibold not-italic">marketing orgânico</strong> que reduz dependência de mídia paga. Quando seu cliente vira contador da sua história, você não compete por preço: compete por memória. E é a única vantagem que concorrente nenhum copia.
             </motion.p>
 
             {/* Linha dourada decorativa */}

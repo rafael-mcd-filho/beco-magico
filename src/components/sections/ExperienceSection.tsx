@@ -7,7 +7,6 @@ import { Section } from "@/components/layout/Section"
 import { Container } from "@/components/layout/Container"
 import { SectionLabel } from "@/components/layout/SectionLabel"
 import { SectionTitle } from "@/components/layout/SectionTitle"
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { fadeUp, stagger, viewportConfig } from "@/lib/motion"
 
@@ -63,10 +62,10 @@ export function ExperienceSection() {
           }}
         />
 
-        <div className="relative z-10 grid lg:grid-cols-12 gap-0 items-stretch py-24 md:py-32">
-          {/* Coluna esquerda — texto */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
-            <Container className="lg:pr-12">
+        <Container className="relative z-10 py-24 md:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Coluna esquerda — texto */}
+            <div className="lg:col-span-7 order-2 lg:order-1">
               <SectionLabel>A EXPERIÊNCIA</SectionLabel>
 
               <SectionTitle>
@@ -84,31 +83,35 @@ export function ExperienceSection() {
                 transition={{ duration: 0.7, delay: 0.6 }}
                 className="font-sans text-lg text-beco-ivorySoft leading-[1.7] max-w-prose mt-8"
               >
-                Quando alguém atravessa a porta do Beco Mágico, ela não está entrando num restaurante. Está entrando num universo. A iluminação muda. O som muda. As paredes contam histórias. O cardápio tem nomes que arrancam sorriso. O drink chega fumegando, o hambúrguer chega coberto de folha de ouro, e por duas horas o cliente esquece que está num shopping ou numa rua de bairro. Quando ele sai, já está combinando de voltar — e já está postando.
+                Quando alguém atravessa a porta do Beco Mágico, ela não está entrando num restaurante. Está entrando num universo. A iluminação muda. O som muda. As paredes contam histórias. O cardápio tem nomes que arrancam sorriso. O drink chega fumegando, o hambúrguer chega coberto de folha de ouro, e por duas horas o cliente esquece que está num shopping ou numa rua de bairro. Quando ele sai, já está combinando de voltar. E já está postando.
               </motion.p>
-            </Container>
-          </div>
+            </div>
 
-          {/* Coluna direita — foto sangrando à direita */}
-          <div className="lg:col-span-5 order-1 lg:order-2 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[42%]">
-            <motion.div
-              initial={{ opacity: 0.98, scale: 0.99 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-15%" }}
-              transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-              className="w-full h-full"
-            >
-              <ImagePlaceholder
-                id="IMAGEM-03"
-                description="Detalhe cenografia — interior temático com luz quente"
-                ratio="3/4"
-                dimension="900×1200"
-                treatment="vibrante, sem overlay"
-                className="w-full h-full !aspect-auto min-h-[500px] lg:min-h-[700px]"
-              />
-            </motion.div>
+            {/* Coluna direita — foto vertical */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <motion.div
+                initial={{ opacity: 0.98, scale: 0.99 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-15%" }}
+                transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+                className="w-full"
+              >
+                <div className="relative aspect-[9/16] w-full overflow-hidden border border-beco-gold/45 bg-beco-leather p-2 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.9)] lg:p-3">
+                  <div className="relative h-full w-full overflow-hidden border border-beco-gold/20 bg-beco-bg">
+                    <Image
+                      src="/images/experiencia/salao.webp"
+                      alt="Salão do Beco Mágico com interior temático e luz quente"
+                      fill
+                      sizes="(min-width: 1024px) 42vw, 100vw"
+                      className="object-cover object-top"
+                    />
+                    <div className="pointer-events-none absolute inset-0 border border-beco-ivory/10" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <section className="relative overflow-hidden bg-beco-leather py-20 md:py-28">
@@ -147,7 +150,7 @@ export function ExperienceSection() {
                 <AnimatedCounter to={50} suffix="k+" />
               </p>
               <p className="font-sans text-sm uppercase tracking-[0.12em] text-white mt-4 leading-tight max-w-xs mx-auto drop-shadow-[0_2px_12px_rgba(20,12,8,0.7)]">
-                Clientes atendidos por mês na rede — com frequência de retorno acima da média do setor
+                Clientes atendidos por mês na rede, com frequência de retorno acima da média do setor
               </p>
             </motion.div>
 
@@ -164,7 +167,7 @@ export function ExperienceSection() {
                 <span className="text-[36px] md:text-[48px]">★</span>
               </p>
               <p className="font-sans text-sm uppercase tracking-[0.12em] text-white mt-4 leading-tight max-w-xs mx-auto drop-shadow-[0_2px_12px_rgba(20,12,8,0.7)]">
-                Nota média no Google e iFood — entre as 5 melhores hamburguerias temáticas do Brasil
+                Nota média no Google, entre as 5 melhores hamburguerias temáticas do Brasil
               </p>
             </motion.div>
           </div>

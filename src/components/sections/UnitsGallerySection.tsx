@@ -124,7 +124,7 @@ export function UnitsGallerySection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="font-sans text-base text-beco-mute mt-6 leading-[1.6]"
           >
-            Cada unidade tem sua identidade visual e atmosfera própria — mas todas seguem o mesmo padrão de imersão, qualidade e atendimento.
+            Cada unidade tem sua identidade visual e atmosfera própria, mas todas seguem o mesmo padrão de imersão, qualidade e atendimento.
           </motion.p>
         </div>
 

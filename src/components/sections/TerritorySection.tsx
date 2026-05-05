@@ -191,10 +191,10 @@ export function TerritorySection() {
                 Algumas praças têm candidaturas em andamento
               </p>
               <p className="font-sans text-sm text-beco-ivorySoft mt-2 leading-[1.6]">
-                Pelo menos <strong className="text-beco-emberLight">3 das 8 praças abertas</strong> estão sob análise ativa de candidatos no momento. Quando uma cidade fecha, ela fecha de verdade — não há lista de espera, não há reabertura no curto prazo.
+                Pelo menos <strong className="text-beco-emberLight">3 das 8 praças abertas</strong> estão sob análise ativa de candidatos no momento. Quando uma cidade fecha, ela fecha de verdade: não há lista de espera, não há reabertura no curto prazo.
               </p>
               <p className="font-sans text-xs italic text-beco-mute mt-3 leading-[1.5]">
-                Pra saber se sua cidade está disponível e em que estágio, preencha o formulário — respondemos com status atualizado em até 24h úteis.
+                Pra saber se sua cidade está disponível e em que estágio, preencha o formulário e respondemos com status atualizado em até 24h úteis.
               </p>
             </div>
           </div>

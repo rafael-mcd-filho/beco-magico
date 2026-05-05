@@ -47,7 +47,7 @@ export function LeadFormSection() {
               className="font-sans text-sm text-beco-emberLight mt-3 flex items-center gap-2"
             >
               <span className="size-2 rounded-pill bg-beco-emberLight animate-pulse" />
-              Análise de candidaturas para 2026 — janela aberta até fim do 2º trimestre
+              Análise de candidaturas para 2026: janela aberta até fim do 2º trimestre
             </motion.p>
 
             <motion.div
@@ -69,7 +69,7 @@ export function LeadFormSection() {
                     Garantia de retorno em 24h úteis
                   </h3>
                   <p className="font-sans text-sm text-beco-ivorySoft mt-3 leading-[1.5]">
-                    Se nossa equipe não responder no prazo prometido, sua próxima reunião é diretamente com <strong className="text-beco-gold">Miguel — Diretor de Expansão</strong>.
+                    Se nossa equipe não responder no prazo prometido, sua próxima reunião é diretamente com <strong className="text-beco-gold">Miguel, Diretor de Expansão</strong>.
                   </p>
                 </div>
               </div>

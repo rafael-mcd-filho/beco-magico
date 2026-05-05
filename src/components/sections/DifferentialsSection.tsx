@@ -57,7 +57,7 @@ export function DifferentialsSection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="font-sans text-lg text-beco-ivorySoft mt-6 leading-[1.6]"
           >
-            Suporte completo da escolha do ponto até o primeiro ano de operação — porque uma franquia que funciona é uma franquia onde a franqueadora tem skin in the game.
+            Suporte completo da escolha do ponto até o primeiro ano de operação, porque uma franquia que funciona é uma franquia onde a franqueadora tem skin in the game.
           </motion.p>
         </div>
 
@@ -73,17 +73,17 @@ export function DifferentialsSection() {
             {
               icon: Castle,
               title: "Cenografia que encanta",
-              desc: "Projeto arquitetônico imersivo com fornecedores homologados — você recebe a unidade pronta pra abrir, não um projeto pra contratar arquiteto e fazer do zero.",
+              desc: "Projeto arquitetônico imersivo com fornecedores homologados: você recebe a unidade pronta pra abrir, não um projeto pra contratar arquiteto e fazer do zero.",
             },
             {
               icon: BookOpenCheck,
               title: "Treinamento operacional intensivo",
-              desc: "30 dias de imersão pré-abertura — você e seu time aprendem cardápio, gestão de cozinha, atendimento e protocolo de eventos antes do primeiro cliente entrar.",
+              desc: "30 dias de imersão pré-abertura: você e seu time aprendem cardápio, gestão de cozinha, atendimento e protocolo de eventos antes do primeiro cliente entrar.",
             },
             {
               icon: ChartNoAxesCombined,
               title: "BI compartilhado da rede",
-              desc: "Dashboard com performance de todas as unidades pra você comparar suas métricas com a média e identificar onde melhorar — saúde financeira aberta entre franqueados.",
+              desc: "Dashboard com performance de todas as unidades pra você comparar suas métricas com a média e identificar onde melhorar. Saúde financeira aberta entre franqueados.",
             },
           ].map((item, i) => {
             const Icon = item.icon

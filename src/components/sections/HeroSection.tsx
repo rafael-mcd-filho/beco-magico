@@ -5,7 +5,7 @@ import { CtaWand } from "@/components/ui/CtaWand"
 import { HeroQuickContactForm } from "@/components/sections/HeroQuickContactForm"
 
 const heroCopy =
-  "O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando — com critério — os franqueados que vão levar esse universo a novas cidades."
+  "O Beco Mágico é a hamburgueria temática que transformou refeições em experiências inesquecíveis e conquistou famílias em todo o Brasil. Estamos selecionando, com critério, os franqueados que vão levar esse universo a novas cidades."
 
 function AnimatedHeroCopy() {
   return (
@@ -29,8 +29,8 @@ function HeroStatsMarquee({ className = "" }: { className?: string }) {
         {[...Array(4)].map((_, groupIndex) => (
           <div key={groupIndex} className="flex items-center gap-10 px-5">
             {[
-              ["6+", "unidades"],
-              ["4", "estados"],
+              ["5", "unidades"],
+              ["5", "estados"],
               ["desde", "2020"],
               ["50 mil+", "clientes/mês"],
             ].map(([value, label]) => (
@@ -104,7 +104,7 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-3 px-4 py-2 bg-beco-ember/15 border border-beco-ember/40 rounded-pill">
             <span className="size-2 rounded-pill bg-beco-ember animate-pulse" />
             <span className="font-sans text-xs md:text-sm text-beco-ivorySoft">
-              <strong className="text-beco-emberLight">Ciclo de expansão 2026</strong> — análises de candidaturas até <strong className="text-beco-emberLight"> fim do 2º trimestre</strong>
+              <strong className="text-beco-emberLight">Ciclo de expansão 2026</strong>: análises de candidaturas até <strong className="text-beco-emberLight"> fim do 2º trimestre</strong>
             </span>
           </div>
         </div>
@@ -189,7 +189,7 @@ export function HeroSection() {
               </p>
               <ul className="space-y-4">
                 {[
-                  "Perfil de gestão e liderança — experiência em food service não é requisito",
+                  "Perfil de gestão e liderança (experiência em food service não é requisito)",
                   "Capital disponível entre R$500k e R$750k+",
                   "Disposição pra operar de perto, especialmente no primeiro ano",
                   "Identificação genuína com a marca e o que ela representa",

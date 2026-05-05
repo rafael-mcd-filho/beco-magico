@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Quanto preciso ter de capital próprio?",
-    a: "Recomendamos pelo menos 60% do investimento em capital próprio (cerca de R$ 300-450k). O restante pode vir de financiamento — o BNDES, Sebrae e bancos parceiros têm linhas específicas pra franquia, e nossa equipe de expansão indica o caminho.",
+    a: "Recomendamos pelo menos 60% do investimento em capital próprio (cerca de R$ 300-450k). O restante pode vir de financiamento: o BNDES, Sebrae e bancos parceiros têm linhas específicas pra franquia, e nossa equipe de expansão indica o caminho.",
   },
   {
     q: "Em quanto tempo recupero o investimento?",
@@ -34,35 +34,27 @@ const faqs = [
   },
   {
     q: "Quanto tempo até abrir minha unidade?",
-    a: "Do primeiro contato até inauguração, em média 5-8 meses. Depende muito de quanto tempo leva pra encontrar o ponto certo na sua cidade — o resto do processo é bastante padronizado.",
+    a: "Do primeiro contato até inauguração, em média 5-8 meses. Depende muito de quanto tempo leva pra encontrar o ponto certo na sua cidade. O resto do processo é bastante padronizado.",
   },
 
   // CONTRATUAIS — médio
   {
     q: "Qual o prazo do contrato?",
-    a: "Contrato padrão de 5 anos, com renovação preferencial por mais 5. Cláusulas, taxas e obrigações são detalhadas na COF (Circular de Oferta de Franquia), apresentada após a primeira reunião — e você tem o prazo legal de 8 dias pra reflexão antes de assinar qualquer coisa.",
+    a: "Contrato padrão de 5 anos, com renovação preferencial por mais 5. Cláusulas, taxas e obrigações são detalhadas na COF (Circular de Oferta de Franquia), apresentada após a primeira reunião, e você tem o prazo legal de 8 dias pra reflexão antes de assinar qualquer coisa.",
   },
   {
     q: "Posso abrir mais de uma unidade?",
-    a: "Sim, e incentivamos. Multifranqueados ganham desconto progressivo na taxa e prioridade em novas praças. Mas exigimos performance comprovada na primeira unidade antes da segunda — não vendemos território de forma especulativa.",
+    a: "Sim, e incentivamos. Multifranqueados ganham desconto progressivo na taxa e prioridade em novas praças. Mas exigimos performance comprovada na primeira unidade antes da segunda. Não vendemos território de forma especulativa.",
   },
 
   // OBJEÇÕES PESADAS — pesado
   {
     q: "E se a região onde eu abrir não funcionar?",
-    a: "É a pergunta certa. Antes da assinatura do contrato, fazemos juntos um estudo de viabilidade da praça que inclui análise de fluxo, concorrência, perfil socioeconômico e benchmark com unidades da rede em cidades similares. Se a praça não passa nesse estudo, não recomendamos abrir — preferimos não vender uma franquia do que vender uma franquia que vai fechar. Quando uma unidade enfrenta dificuldade real, nossa equipe entra na operação: revisão de gestão, ajuste de cardápio local, intervenção em marketing e, em casos extremos, renegociação de royalty pra dar fôlego de caixa.",
-  },
-  {
-    q: "Posso vender minha unidade pra outra pessoa depois?",
-    a: "Sim. A cessão de franquia é prevista no contrato, com aprovação prévia da franqueadora pra garantir que o novo franqueado tem perfil compatível. Cobramos taxa de transferência (cerca de 20% da taxa de franquia atual) e o processo leva ~60 dias. Várias unidades já passaram por essa transição com sucesso, e em muitas delas o valor de venda foi acima do valor de aquisição.",
+    a: "É a pergunta certa. Antes da assinatura do contrato, fazemos juntos um estudo de viabilidade da praça que inclui análise de fluxo, concorrência, perfil socioeconômico e benchmark com unidades da rede em cidades similares. Se a praça não passa nesse estudo, não recomendamos abrir. Preferimos não vender uma franquia do que vender uma franquia que vai fechar. Quando uma unidade enfrenta dificuldade real, nossa equipe entra na operação: revisão de gestão, ajuste de cardápio local, intervenção em marketing e, em casos extremos, renegociação de royalty pra dar fôlego de caixa.",
   },
   {
     q: "Sou obrigado a comprar de fornecedores específicos?",
-    a: "Sim, em alguns casos. Insumos críticos pra padronização (carne premium, brioche da casa, drinks autorais) precisam vir dos fornecedores homologados — porque é o que garante que um Beco Mágico em Goiânia tem o mesmo gosto que um Beco Mágico em Manaus. Outros itens (FLV, descartáveis, limpeza) você pode comprar localmente. A lista completa de obrigatórios e livres está na COF e a gente discute caso a caso.",
-  },
-  {
-    q: "Como sei que o Beco Mágico não vai quebrar daqui a 5 anos?",
-    a: "Não dá pra prometer ausência de risco — qualquer franqueadora que prometa isso está mentindo. O que dá pra mostrar é histórico: 6+ anos de operação, expansão consistente com unidades em 4 estados, faturamento por unidade crescendo ano a ano, e nenhuma unidade fechada por descumprimento da franqueadora até hoje. Em reunião, mostramos balanço operacional, contratos com fornecedores estratégicos e plano de expansão dos próximos 3 anos pra você avaliar a saúde da rede com transparência.",
+    a: "Sim, em alguns casos. Insumos críticos pra padronização (carne premium, brioche da casa, drinks autorais) precisam vir dos fornecedores homologados, porque é o que garante que um Beco Mágico em Goiânia tem o mesmo gosto que um Beco Mágico em Manaus. Outros itens (FLV, descartáveis, limpeza) você pode comprar localmente. A lista completa de obrigatórios e livres está na COF e a gente discute caso a caso.",
   },
 ]
 
