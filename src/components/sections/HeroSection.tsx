@@ -32,7 +32,7 @@ function HeroStatsMarquee({ className = "" }: { className?: string }) {
               ["5", "unidades"],
               ["5", "estados"],
               ["desde", "2020"],
-              ["50 mil+", "clientes/mês"],
+              ["15 mil+", "clientes/mês"],
             ].map(([value, label]) => (
               <div key={`${groupIndex}-${value}-${label}`} className="flex items-baseline gap-2 whitespace-nowrap">
                 <span className="font-display text-xl font-semibold text-beco-gold md:text-2xl">
