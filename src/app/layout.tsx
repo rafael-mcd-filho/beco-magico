@@ -44,8 +44,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${wizardWorld.variable} ${cinzel.variable} ${inter.variable}`}>
       <head>
-        <link rel="preload" as="image" href="/images/hero/heromobile.webp" media="(max-width: 767px)" />
-        <link rel="preload" as="image" href="/images/hero/hero.webp" media="(min-width: 768px)" />
+        <link rel="preload" as="image" href="/images/hero/heromobile.webp" media="(max-width: 767px)" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/hero/hero.webp" media="(min-width: 768px)" fetchPriority="high" />
       </head>
       <body className="bg-beco-bg text-beco-ivory font-sans antialiased">
         {children}
