@@ -7,7 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
 import { CtaWand } from "@/components/ui/CtaWand"
 import { trackEvent } from "@/lib/tracking"
-import { leadFormSchema, type LeadFormData, ESTADOS_BR } from "./LeadFormSchema"
+import { createWhatsappUrl } from "@/lib/whatsapp"
+import { CAPITAL_LABELS, ESTADOS_BR, leadFormSchema, type LeadFormData } from "./LeadFormSchema"
 
 function maskWhatsapp(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
@@ -15,6 +16,17 @@ function maskWhatsapp(value: string): string {
   if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
   if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
+}
+
+function buildCompleteLeadWhatsappMessage(data: LeadFormData) {
+  return [
+    "Ola! Tenho interesse na franquia Beco Magico.",
+    "Tentei enviar o formulario completo pelo site, mas ocorreu um erro.",
+    `Nome: ${data.nome}`,
+    `WhatsApp: ${data.whatsapp}`,
+    `Cidade/UF: ${data.cidade} - ${data.estado}`,
+    `Capital disponivel: ${CAPITAL_LABELS[data.capital]}`,
+  ].join("\n")
 }
 
 export function LeadForm() {
@@ -62,7 +74,14 @@ export function LeadForm() {
       router.push("/obrigado")
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Algo deu errado"
+      const fallbackUrl = createWhatsappUrl(buildCompleteLeadWhatsappMessage(data))
       setServerError(msg)
+      trackEvent("lead_form_whatsapp_fallback", {
+        form_id: "lead-form-maior",
+        form_type: "complete",
+        location: "lead_form_section",
+      })
+      window.setTimeout(() => window.location.assign(fallbackUrl), 150)
       setSubmitting(false)
     }
   }

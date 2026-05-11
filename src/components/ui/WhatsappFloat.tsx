@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react"
 
 import { trackEvent } from "@/lib/tracking"
-
-const WHATSAPP_NUMBER = "5583999641226"
-const DEFAULT_MESSAGE = "Olá! Tenho interesse em conhecer a franquia Beco Mágico."
+import { createWhatsappUrl } from "@/lib/whatsapp"
 
 export function WhatsappFloat() {
   const [visible, setVisible] = useState(false)
@@ -36,7 +34,7 @@ export function WhatsappFloat() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`
+  const whatsappUrl = createWhatsappUrl()
 
   return (
     <a

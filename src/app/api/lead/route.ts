@@ -1,20 +1,12 @@
 import { NextResponse } from "next/server"
-import { leadFormSchema, miniLeadFormSchema } from "@/components/forms/LeadFormSchema"
+import { CAPITAL_LABELS, leadFormSchema, miniLeadFormSchema } from "@/components/forms/LeadFormSchema"
 
 export const runtime = "nodejs"
 
 const COMPLETE_LEAD_WEBHOOK_URL = "https://webhook.rwsolucoesdigitais.com/webhook/becoformmaior"
 const QUICK_LEAD_WEBHOOK_URL = "https://webhook.rwsolucoesdigitais.com/webhook/becoformmenor"
 const SAO_PAULO_TIME_ZONE = "America/Sao_Paulo"
-
-const CAPITAL_LABELS = {
-  "500-600": "R$ 500.000 a R$ 600.000",
-  "600-700": "R$ 600.000 a R$ 700.000",
-  "700-800": "R$ 700.000 a R$ 800.000",
-  "800-900": "R$ 800.000 a R$ 900.000",
-  "900-1000": "R$ 900.000 a R$ 1.000.000",
-  "1000-mais": "Mais de R$ 1.000.000",
-} as const
+const WEBHOOK_TIMEOUT_MS = 8000
 
 function getSaoPauloSubmissionDate(now: Date) {
   return {
@@ -69,12 +61,16 @@ export async function POST(req: Request) {
 
     console.log("[lead]", lead)
 
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), WEBHOOK_TIMEOUT_MS)
+
     const webhookRes = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),
       cache: "no-store",
-    })
+      signal: controller.signal,
+    }).finally(() => clearTimeout(timeout))
 
     if (!webhookRes.ok) {
       throw new Error(`Lead webhook failed with status ${webhookRes.status}`)

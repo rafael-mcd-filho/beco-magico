@@ -6,6 +6,7 @@ import { Loader2 } from "lucide-react"
 
 import { CtaWand } from "@/components/ui/CtaWand"
 import { trackEvent } from "@/lib/tracking"
+import { createWhatsappUrl } from "@/lib/whatsapp"
 
 function maskWhatsapp(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
@@ -13,6 +14,15 @@ function maskWhatsapp(value: string): string {
   if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
   if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
+}
+
+function buildQuickLeadWhatsappMessage(nome: string, whatsapp: string) {
+  return [
+    "Ola! Tenho interesse na franquia Beco Magico.",
+    "Tentei enviar o formulario rapido pelo site, mas ocorreu um erro.",
+    `Nome: ${nome}`,
+    `WhatsApp: ${whatsapp}`,
+  ].join("\n")
 }
 
 export function HeroQuickContactForm() {
@@ -66,7 +76,14 @@ export function HeroQuickContactForm() {
 
       router.push("/obrigado")
     } catch (err) {
+      const fallbackUrl = createWhatsappUrl(buildQuickLeadWhatsappMessage(nome, whatsapp))
       setError(err instanceof Error ? err.message : "Algo deu errado.")
+      trackEvent("lead_form_whatsapp_fallback", {
+        form_id: "lead-form-menor",
+        form_type: "quick-contact",
+        location: "hero",
+      })
+      window.setTimeout(() => window.location.assign(fallbackUrl), 150)
       setSubmitting(false)
     }
   }
