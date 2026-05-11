@@ -107,6 +107,7 @@ export function FooterSection() {
 
               <a
                 href="#formulario"
+                data-gtm="cta-footer-formulario"
                 className="group cta-outline inline-flex items-center mt-6 px-5 py-2.5 rounded-md border border-beco-gold/60 text-beco-gold text-sm font-sans font-semibold hover:bg-beco-gold hover:text-beco-bg"
               >
                 Quero ser franqueado

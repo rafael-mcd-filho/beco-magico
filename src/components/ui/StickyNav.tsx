@@ -82,6 +82,7 @@ export function StickyNav() {
 
         <a
           href="#formulario"
+          data-gtm="cta-sticky-formulario"
           className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-wizard font-normal text-sm px-4 py-1.5 md:px-5 md:py-2.5 hover:bg-beco-goldGlow whitespace-nowrap shrink-0"
         >
           <span className="hidden sm:inline">Quero ser franqueado</span>

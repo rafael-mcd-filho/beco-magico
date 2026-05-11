@@ -71,6 +71,7 @@ export function TerritorySection() {
               </p>
               <a
                 href="#formulario"
+                data-gtm="cta-territorio-formulario"
                 className="group cta-outline inline-flex items-center mt-6 px-6 py-3 rounded-md border border-beco-gold/60 text-beco-gold hover:bg-beco-gold hover:text-beco-bg font-sans font-semibold text-sm"
               >
                 Verificar minha cidade

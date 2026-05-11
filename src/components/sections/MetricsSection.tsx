@@ -305,6 +305,7 @@ export function MetricsSection() {
         >
           <a
             href="#formulario"
+            data-gtm="cta-metrics-formulario"
             className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow"
           >
             Quero receber a apresentação

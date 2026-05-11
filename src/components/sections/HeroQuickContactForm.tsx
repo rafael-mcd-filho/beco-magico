@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
 
 import { CtaWand } from "@/components/ui/CtaWand"
+import { trackEvent } from "@/lib/tracking"
 
 function maskWhatsapp(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
@@ -49,13 +50,19 @@ export function HeroQuickContactForm() {
         body: JSON.stringify({
           nome,
           whatsapp,
-          source: "hero-mini-form",
+          source: "lead-form-menor",
         }),
       })
 
       if (!res.ok) {
         throw new Error("Não foi possível solicitar contato agora.")
       }
+
+      trackEvent("lead_form_submit", {
+        form_id: "lead-form-menor",
+        form_type: "quick-contact",
+        location: "hero",
+      })
 
       router.push("/obrigado")
     } catch (err) {
@@ -66,6 +73,8 @@ export function HeroQuickContactForm() {
 
   return (
     <form
+      id="lead-form-menor"
+      data-gtm="lead-form-menor"
       onSubmit={handleSubmit}
       className="mt-8 space-y-5 rounded border border-beco-border/40 bg-beco-bgAlt/40 p-5 backdrop-blur-sm sm:p-6"
     >
@@ -108,6 +117,7 @@ export function HeroQuickContactForm() {
 
       <button
         type="submit"
+        data-gtm="lead-submit-menor"
         disabled={submitting}
         className="group cta-gold inline-flex w-full items-center justify-center gap-2 rounded-md bg-beco-gold px-6 py-4 font-sans text-base font-semibold text-beco-bg hover:bg-beco-goldGlow disabled:cursor-not-allowed disabled:opacity-60"
       >

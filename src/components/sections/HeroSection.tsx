@@ -168,6 +168,7 @@ export function HeroSection() {
             >
               <a
                 href="#formulario"
+                data-gtm="cta-hero-formulario"
                 className="group cta-gold inline-flex items-center justify-center rounded-md bg-beco-gold text-beco-bg font-sans font-semibold px-8 py-4 hover:bg-beco-goldGlow"
               >
                 QUERO SER FRANQUEADO

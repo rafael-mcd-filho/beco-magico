@@ -486,7 +486,7 @@ Padroes que deram certo:
 - estados de loading e erro;
 - redirect para `/obrigado` apos sucesso;
 - API aceita lead completo ou contato rapido;
-- webhook externo opcional via `LEAD_WEBHOOK_URL`;
+- webhook externo por tipo de formulario: completo em `becoformmaior`, rapido em `becoformmenor`;
 - `cache: "no-store"` no envio para webhook;
 - runtime explicitado como `nodejs`.
 

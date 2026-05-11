@@ -75,6 +75,7 @@ function ExtraQuestionBlock({ className = "" }: { className: string }) {
       </p>
       <a
         href="#formulario"
+        data-gtm="cta-faq-formulario"
         className="group cta-outline inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold/70 rounded-md"
       >
         Fazer minha pergunta

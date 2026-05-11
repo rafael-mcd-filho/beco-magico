@@ -33,10 +33,6 @@ O arquivo `vercel.json` ja fixa os comandos principais para evitar divergencia e
 
 ## Variaveis de ambiente
 
-Copie `.env.example` para `.env.local` em desenvolvimento quando precisar testar integracoes:
+Nao ha variaveis obrigatorias para envio dos leads no fluxo atual.
 
-```bash
-LEAD_WEBHOOK_URL=
-```
-
-Na Vercel, configure `LEAD_WEBHOOK_URL` em Project Settings > Environment Variables se quiser enviar os leads para Make, Zapier, HubSpot, Pipedrive ou outro endpoint HTTP. Sem essa variavel, a API `/api/lead` valida o formulario, registra o lead nos logs da funcao e retorna sucesso.
+A API `/api/lead` valida o payload e envia o formulario completo para o webhook `becoformmaior` e o formulario rapido do hero para o webhook `becoformmenor`.

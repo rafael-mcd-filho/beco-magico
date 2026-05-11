@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
 import { CtaWand } from "@/components/ui/CtaWand"
+import { trackEvent } from "@/lib/tracking"
 import { leadFormSchema, type LeadFormData, ESTADOS_BR } from "./LeadFormSchema"
 
 function maskWhatsapp(value: string): string {
@@ -42,12 +43,21 @@ export function LeadForm() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          source: "lead-form-maior",
+        }),
       })
 
       if (!res.ok) {
         throw new Error("Erro ao enviar — tente novamente em instantes.")
       }
+
+      trackEvent("lead_form_submit", {
+        form_id: "lead-form-maior",
+        form_type: "complete",
+        location: "lead_form_section",
+      })
 
       router.push("/obrigado")
     } catch (e) {
@@ -62,7 +72,12 @@ export function LeadForm() {
   const errorBase = "text-beco-emberLight font-sans text-xs mt-1.5"
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form
+      id="lead-form-maior"
+      data-gtm="lead-form-maior"
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-5"
+    >
       <div>
         <label htmlFor="nome" className={labelBase}>Nome completo *</label>
         <input
@@ -151,6 +166,7 @@ export function LeadForm() {
 
       <button
         type="submit"
+        data-gtm="lead-submit-maior"
         disabled={submitting}
         className="group cta-gold w-full mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-beco-gold text-beco-bg font-sans font-semibold text-base px-8 py-5 hover:bg-beco-goldGlow disabled:opacity-60 disabled:cursor-not-allowed"
       >

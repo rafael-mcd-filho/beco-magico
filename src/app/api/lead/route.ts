@@ -3,6 +3,9 @@ import { leadFormSchema, miniLeadFormSchema } from "@/components/forms/LeadFormS
 
 export const runtime = "nodejs"
 
+const COMPLETE_LEAD_WEBHOOK_URL = "https://webhook.rwsolucoesdigitais.com/webhook/becoformmaior"
+const QUICK_LEAD_WEBHOOK_URL = "https://webhook.rwsolucoesdigitais.com/webhook/becoformmenor"
+
 export async function POST(req: Request) {
   try {
     const body = await req.json()
@@ -17,26 +20,26 @@ export async function POST(req: Request) {
       )
     }
 
+    const leadType = fullLead.success ? "complete" : "quick-contact"
+    const webhookUrl = fullLead.success ? COMPLETE_LEAD_WEBHOOK_URL : QUICK_LEAD_WEBHOOK_URL
     const lead = {
       timestamp: new Date().toISOString(),
       source,
-      type: fullLead.success ? "complete" : "quick-contact",
+      type: leadType,
       ...(fullLead.success ? fullLead.data : miniLead!.data),
     }
 
     console.log("[lead]", lead)
 
-    if (process.env.LEAD_WEBHOOK_URL) {
-      const webhookRes = await fetch(process.env.LEAD_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(lead),
-        cache: "no-store",
-      })
+    const webhookRes = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(lead),
+      cache: "no-store",
+    })
 
-      if (!webhookRes.ok) {
-        throw new Error(`Lead webhook failed with status ${webhookRes.status}`)
-      }
+    if (!webhookRes.ok) {
+      throw new Error(`Lead webhook failed with status ${webhookRes.status}`)
     }
 
     return NextResponse.json({ ok: true })

@@ -74,6 +74,7 @@ function NextCityCard() {
 
       <a
         href="#formulario"
+        data-gtm="cta-unidades-formulario"
         className="group cta-outline mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] px-5 font-sans text-sm font-semibold text-beco-gold border border-beco-gold/40 hover:border-beco-gold rounded-md"
       >
         Quero a minha

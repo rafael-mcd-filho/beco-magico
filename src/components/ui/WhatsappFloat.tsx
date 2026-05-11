@@ -43,6 +43,8 @@ export function WhatsappFloat() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      id="whatsapp-float"
+      data-gtm="cta-whatsapp-float"
       onClick={() => trackEvent("whatsapp_click", { location: "float" })}
       aria-label="Falar com a equipe de expansão no WhatsApp"
       className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex size-14 md:size-16 items-center justify-center rounded-pill bg-[#25D366] shadow-[0_8px_24px_-4px_rgba(37,211,102,0.5)] transition-[background-color,opacity,transform] duration-300 ease-out hover:bg-[#1DA851] ${
