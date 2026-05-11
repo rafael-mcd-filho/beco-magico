@@ -3,7 +3,7 @@
 import Link from "next/link"
 import type { SVGProps } from "react"
 import { motion } from "framer-motion"
-import { FileText, Video, ArrowLeft } from "lucide-react"
+import { ArrowLeft, FileText } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { CtaWand } from "@/components/ui/CtaWand"
 
@@ -101,7 +101,7 @@ export function ObrigadoContent() {
             hidden: {},
             show: { transition: { staggerChildren: 0.12, delayChildren: 1.0 } },
           }}
-          className="grid sm:grid-cols-3 gap-4 mt-16 w-full max-w-3xl"
+          className="grid gap-4 mt-16 w-full max-w-2xl sm:grid-cols-2"
         >
           {[
             {
@@ -112,18 +112,11 @@ export function ObrigadoContent() {
               href: "#",
             },
             {
-              icon: Video,
-              title: "Vídeo dos franqueados",
-              desc: "Veja franqueados atuais contando como é o dia a dia operando uma unidade do Beco Mágico.",
-              cta: "Assistir agora",
-              href: "#",
-            },
-            {
               icon: InstagramIcon,
               title: "Siga o Beco Mágico",
               desc: "Acompanhe os bastidores, novos sabores e eventos das unidades em operação.",
-              cta: "@becomagico",
-              href: "https://instagram.com/becomagico",
+              cta: "@becomagicobrasil",
+              href: "https://www.instagram.com/becomagicobrasil/",
             },
           ].map((item, i) => {
             const Icon = item.icon
